@@ -57,7 +57,7 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">{{ $blog->title }}</h6>
-                        <p class="text-xs text-secondary mb-0">{{ Str::limit($blog->content, 100) }}</p> <!-- Menampilkan potongan konten -->
+                        <p class="text-xs text-secondary mb-0">{{ substr($blog->content, 0, 100) }}...</p> <!-- Menampilkan potongan konten -->
                     </div>
                 </div>
             </td>
