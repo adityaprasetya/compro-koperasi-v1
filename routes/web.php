@@ -89,3 +89,5 @@ Route::post('/daftarAdmin', [ControllerUser::class, 'daftarAdmin'])
 ->name('daftaradmin.post');
 
 /* Blog */
+
+Route::post('/blog', [ControllerBlog::class, 'store'])->name('blog.store');

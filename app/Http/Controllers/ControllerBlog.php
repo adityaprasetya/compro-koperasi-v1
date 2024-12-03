@@ -24,19 +24,6 @@ class ControllerBlog extends Controller
 
     }
 
-    // Menampilkan daftar blog
-    public function list()
-    {
-        // Ambil semua data blog dari tabel blogs
-        $blogs = Blog::all();
-
-        // Menambahkan pageTitle untuk halaman manajemen blog
-        $pageTitle = 'Manajemen Blog';
-
-        // Kirim data blog ke tampilan
-        return view('blog.index', compact('blogs', 'pageTitle'));
-    }
-
     // Menangani form untuk membuat dan menyimpan blog
     public function store(Request $request)
     {
