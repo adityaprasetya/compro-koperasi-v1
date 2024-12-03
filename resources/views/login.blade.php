@@ -37,8 +37,8 @@
 
         
         <div class="form-floating">
-            <input type="text" class="form-control " id="username" name="username" placeholder="Masukan username" autofocus="" required="">
-            <label for="username">Username</label>
+            <input type="text" class="form-control " id="email" name="email" placeholder="Masukan email" autofocus="" required="">
+            <label for="email">Email</label>
                     </div>
         <div class="form-floating">
             <input type="password" class="form-control " id="password" name="password" placeholder="Masukan Password" required="">
