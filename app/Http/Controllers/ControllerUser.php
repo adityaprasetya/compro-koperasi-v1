@@ -89,6 +89,6 @@ class ControllerUser extends Controller
         // auth()->login($user);
 
         // Redirect ke halaman yang diinginkan setelah register, bisa ke dashboard atau halaman lain
-        return redirect()->route('admin.manajemenakun'); // Pastikan Anda sudah membuat route 'dashboard'
+        return redirect()->route('manajemenakun'); // Pastikan Anda sudah membuat route 'dashboard'
     }
 }
