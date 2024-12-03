@@ -28,7 +28,7 @@ class ControllerBlog extends Controller
     public function show($slug)
     {
         $blog = ModelBlog::where('slug', $slug)->firstOrFail(); // Ambil artikel berdasarkan slug
-        return view('blog.show', compact('blog'));
+        return view('artikel-single', compact('blog'));
     }
 
     // Fungsi untuk mengambil gambar dari folder storage
