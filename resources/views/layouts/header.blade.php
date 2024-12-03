@@ -29,7 +29,7 @@
     <!-- Animation -->
     <link rel="stylesheet" href="assets/animate.css">
     <!-- slick Carousel -->
-    <link rel="stylesheet" href="assets/slick.css">
+    <link rel="stylesheet" href="{{ asset('assets/slick.css') }}">
     <link rel="stylesheet" href="assets/slick-theme.css">
     <!-- Colorbox -->
     <link rel="stylesheet" href="assets/colorbox.css">
