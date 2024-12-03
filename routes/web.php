@@ -78,16 +78,15 @@ Route::get('/manajemenakun', [ControllerUser::class, 'akun'])
 
 /* Auth */
 Route::post('login', [ControllerAuth::class, 'login'])->name('login.post');
-
 Route::post('logout', [ControllerAuth::class, 'logout'])->name('logout');
 
 /* Akun */
 Route::post('/daftar', [ControllerUser::class, 'daftar'])
 ->name('daftar.post');
-
 Route::post('/daftarAdmin', [ControllerUser::class, 'daftarAdmin'])
 ->name('daftaradmin.post');
 
 /* Blog */
-
 Route::post('/blog', [ControllerBlog::class, 'store'])->name('blog.store');
+Route::get('/blogs/{id}/edit', [ControllerBlog::class, 'edit'])->name('blog.edit');
+Route::delete('/blogs/{id}', [ControllerBlog::class, 'destroy'])->name('blog.destroy');
