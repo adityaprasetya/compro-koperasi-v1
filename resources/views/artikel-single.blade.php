@@ -69,5 +69,7 @@
         </div><!-- Main row end -->
     </div><!-- Container end -->
 
+</div>
+
 <!-- Footer -->
 @include('layouts.footer')
