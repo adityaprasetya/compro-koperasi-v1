@@ -14,7 +14,8 @@ class ModelBlog extends Model
 
     // Menentukan kolom-kolom yang dapat diisi secara massal (mass-assignment)
     protected $fillable = [
-        'title', 
+        'title',
+        'slug', 
         'content', 
         'author_id', 
         'status', 
