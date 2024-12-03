@@ -1,89 +1,162 @@
 <!-- Header -->
-@include('layouts.header')
+@include('admin.layouts.header')
 
 <body class="g-sidenav-show   bg-gray-100">
   <div class="min-height-300 bg-dark position-absolute w-100"></div>
   
   <!-- Sidebar -->
-  @include('layouts.sidebar')
+  @include('admin.layouts.sidebar')
   
   <main class="main-content position-relative border-radius-lg ">
     
   <!-- Navbar -->
-  @include('layouts.navbar')
+  @include('admin.layouts.navbar')
 
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Tugas</h6>
+              <h6>Blog</h6>
             </div>
             <div class="col-11 text-end">
                 <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
-                    <i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data
+                    <i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Blog
                 </a>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
 
               <table class="table align-items-center mb-0">
-                  <thead>
-                      <tr>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th> 
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tugas</th>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Deskripsi</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deadline</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dibuat</th>
-                          <th class="text-secondary opacity-7"></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($tugas as $index => $task)
-                      <tr>
-                          <td>
-                              <!-- Menampilkan nomor urut -->
-                              <p class="text-xs font-weight-bold mb-0">{{ $index + 1 }}</p> <!-- +1 agar dimulai dari 1 -->
-                          </td>
-                          <td>
-                              <div class="d-flex px-2 py-1">
-                                  <div>
-                                      <!-- Gambar Author, Anda bisa sesuaikan -->
-                                      <img src="https://via.placeholder.com/150" class="avatar avatar-sm me-3" alt="user1">
-                                  </div>
-                                  <div class="d-flex flex-column justify-content-center">
-                                      <h6 class="mb-0 text-sm">{{ $task->title }}</h6>
-
-                                  </div>
-                              </div>
-                          </td>
-                          <td>
-                              <p class="text-xs font-weight-bold mb-0">{{ $task->description }}</p>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                              <span class="badge badge-sm bg-gradient-warning">{{ \Carbon\Carbon::parse($task->due_date)->format('d/m/Y H:i') }}</span>
-                          </td>
-                          <td class="align-middle text-center">
-                              <span class="text-secondary text-xs font-weight-bold">{{ \Carbon\Carbon::parse($task->created_at)->format('d/m/Y') }}</span>
-                          </td>
-                          <td class="align-middle">
-                            <a href="" class="badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
-                              Lihat
-                            </a>
-                            <a href="" class="badge badge-sm bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
-                              Ubah
-                            </a>
-                            <a href="" class="badge badge-sm bg-gradient-danger" data-toggle="tooltip" data-original-title="Edit user">
-                              Hapus
-                            </a>
-                          </td>
-                      </tr>
-                      @endforeach
-                  </tbody>
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pengguna</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aktif</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dibuat</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($users as $index => $user)
+                  <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div>{{ $index + 1 }}</div> <!-- Menampilkan nomor urut -->
+                    </div>
+                  </td>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div>
+                          <img src="https://via.placeholder.com/150" class="avatar avatar-sm me-3" alt="{{ $user->name }}">
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                          <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
+                          <p class="text-xs text-secondary mb-0">{{ $user->phone }}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">{{ ucfirst($user->role) }}</p>
+                      <p class="text-xs text-secondary mb-0">{{ $user->username }}</p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span class="badge badge-sm bg-gradient-success">{{ $user->is_active ? 'Online' : 'Offline' }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{ $user->created_at->format('d/m/y') }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <a href="" class="badge badge-sm bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit user">
+                        Ubah
+                      </a>
+                      <a href="" class="badge badge-sm bg-gradient-danger" data-toggle="tooltip" data-original-title="Edit user">
+                        Hapus
+                      </a>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
               </table>
 
               </div>
             </div>
+
+            <div class="modal fade" id="tambahDataModal" tabindex="-1" aria-labelledby="tambahDataModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data Akun</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="{{ route('daftaradmin.post') }}">
+                                @csrf
+                                <!-- Input Name -->
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="{{ old('name') }}" required>
+                                    @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                
+                                <!-- Input Username -->
+                                <!-- <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ old('username') }}" required>
+                                    @error('username') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div> -->
+                                
+                                <!-- Input Email -->
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                
+                                <!-- Input Password -->
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                
+                                <!-- Input Confirm Password -->
+                                <div class="mb-3">
+                                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password" required>
+                                </div>
+                                
+                                <!-- Input Phone -->
+                                <!-- <div class="mb-3">
+                                    <label for="phone" class="form-label">Nomor Telepon</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon" value="{{ old('phone') }}">
+                                    @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div> -->
+
+                                <!-- Dropdown Role (Murid / Guru) -->
+                                <!-- <div class="mb-3">
+                                    <label for="role" class="form-label">Pilih Peran</label>
+                                    <select class="form-select" id="role" name="role" required>
+                                        <option value="" disabled selected>Pilih Peran</option>
+                                        <option value="murid">Murid</option>
+                                        <option value="guru">Guru</option>
+                                    </select>
+                                    @error('role') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div> -->
+                                
+                                <!-- Submit Button -->
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -311,52 +384,15 @@
           </div>
         </div>
       </div> -->
-
-      <!-- Modal Tambah Data -->
-<div class="modal fade" id="tambahDataModal" tabindex="-1" aria-labelledby="tambahDataModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data Tugas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="modal-body">
-              <form action="{{ route('tugas.post') }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                  <label for="title" class="form-label">Judul Tugas</label>
-                  <input type="text" class="form-control" id="title" name="title" required>
-                </div>
-                <div class="mb-3">
-                  <label for="description" class="form-label">Deskripsi Tugas</label>
-                  <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="due_date" class="form-label">Jatuh Tempo</label>
-                  <input type="datetime-local" class="form-control" id="due_date" name="due_date" required>
-                </div>
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-</div>
       
       <!-- Footer -->
-      @include('layouts.footer')
+      @include('admin.layouts.footer')
 
     </div>
   </main>
   
   <!-- Customize -->
-  @include('layouts.customize')
+  @include('admin.layouts.customize')
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
@@ -364,9 +400,6 @@
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="assets/js/plugins/chartjs.min.js"></script>
-
-
-
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

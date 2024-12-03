@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
-use App\Http\Controllers\ControllerTugas;
+use App\Http\Controllers\ControllerBlog;
 use App\Http\Controllers\ControllerDashboard;
 
 /*
@@ -56,8 +56,14 @@ Route::get('login', [ControllerAuth::class, 'index'])
 
 Route::get('/daftar', [ControllerUser::class, 'index']);
 
+/* Login Require */
+
 Route::get('/dashboard', [ControllerDashboard::class, 'index'])
 ->name('dashboard')
+->middleware('auth');
+
+Route::get('/blog', [ControllerBlog::class, 'index'])
+->name('blog')
 ->middleware('auth');
 
 Route::get('/akun', function () {
@@ -67,6 +73,8 @@ Route::get('/akun', function () {
 Route::get('/manajemenakun', [ControllerUser::class, 'akun'])
 ->name('manajemenakun')
 ->middleware('auth');
+
+/* Logic */
 
 /* Auth */
 Route::post('login', [ControllerAuth::class, 'login'])->name('login.post');
@@ -79,3 +87,5 @@ Route::post('/daftar', [ControllerUser::class, 'daftar'])
 
 Route::post('/daftarAdmin', [ControllerUser::class, 'daftarAdmin'])
 ->name('daftaradmin.post');
+
+/* Blog */
