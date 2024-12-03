@@ -1,7 +1,7 @@
 <!-- Header -->
 @include('admin.layouts.header')
 
-<body class="g-sidenav-show   bg-success">
+<body class="g-sidenav-show bg-gray-100">
   <div class="min-height-300 bg-success position-absolute w-100"></div>
 
   <!-- Sidebar -->
