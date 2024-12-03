@@ -5,7 +5,7 @@
               <div class="copyright text-center text-sm text-muted text-lg-start">
                 © <script>
                   document.write(new Date().getFullYear())
-                </script>, AppSekolah
+                </script>, TMI Syariah - Telaga Mandiri Indonesia
               </div>
             </div>
             <!-- <div class="col-lg-6">
