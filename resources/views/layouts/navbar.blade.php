@@ -28,7 +28,7 @@
 
                             <div class="logo">
                                 <a class="d-block" href="/">
-                                    <img loading="lazy" src="assets/logo-gh-test.png" alt="Constra">
+                                    <img loading="lazy" src="{{ asset('assets/logo-gh-test.png') }}" alt="Constra">
                                     Koperasi Telaga Mandiri Indonesia
                                 </a>
                             </div><!-- logo end -->
