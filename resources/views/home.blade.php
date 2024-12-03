@@ -178,13 +178,12 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         </div>
 
         <div class="row">
-            @foreach($blogs as $blog)
+            @foreach ($blogs as $blog)
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="latest-post">
                         <div class="latest-post-media">
-                            <!-- Menampilkan gambar blog -->
                             <a href="{{ route('blog.show', $blog->slug) }}" class="latest-post-img">
-                                <img loading="lazy" class="img-fluid" src="{{ asset('storage/'.$blog->image) }}" alt="{{ $blog->title }}">
+                                <img loading="lazy" class="img-fluid" src="{{ route('blog.image', basename($blog->image)) }}" width="80px" alt="img">
                             </a>
                         </div>
                         <div class="post-body">
@@ -205,9 +204,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         <div class="general-btn text-center mt-4">
             <a class="btn btn-primary" href="{{ route('blog.index') }}">See All Posts</a>
         </div>
-
     </div>
-    <!--/ Container end -->
 </section>
 <!--/ News end -->
 

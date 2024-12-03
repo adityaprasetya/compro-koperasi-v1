@@ -31,6 +31,27 @@ class ControllerBlog extends Controller
         return view('blog.show', compact('blog'));
     }
 
+    // Fungsi untuk mengambil gambar dari folder storage
+    public function getImage($filename)
+    {
+        // Tentukan path file di storage
+        $path = storage_path('app/public/' . $filename);
+
+        // Cek apakah file ada di dalam storage
+        if (!file_exists($path)) {
+            abort(404); // Jika file tidak ada, kembalikan 404
+        }
+
+        // Mendapatkan mime type file
+        $mimeType = mime_content_type($path);
+
+        // Mengembalikan file sebagai response
+        return response()->file($path, [
+            'Content-Type' => $mimeType,
+            'Content-Disposition' => 'inline; filename="' . basename($path) . '"',
+        ]);
+    }
+
     // Menangani form untuk membuat dan menyimpan blog
     public function store(Request $request)
 {
