@@ -153,6 +153,6 @@ class ControllerBlog extends Controller
         $blog->delete();
 
         // Redirect ke halaman daftar blog setelah berhasil
-        return redirect()->route('blog.list')->with('success', 'Blog berhasil dihapus');
+        return redirect()->route('blog')->with('success', 'Blog berhasil dihapus');
     }
 }
