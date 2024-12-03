@@ -33,3 +33,6 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/admin/css/argon-dashboard.css?v=2.1.0" rel="stylesheet" />
 </head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-success position-absolute w-100"></div>
