@@ -31,19 +31,19 @@
 
 <body class="text-center">
     <main class="form-signin">
-    <form action="/login" method="post">
+    <form method="POST" action="{{ route('login.post') }}">
     <img class="mb-4" src="assets/login/logo-gh-test.png" alt="" width="200">
         <h1 class="h3 mb-3 fw-normal">Form Login</h1>
-
-        
         <div class="form-floating">
-            <input type="text" class="form-control " id="email" name="email" placeholder="Masukan email" autofocus="" required="">
+            <input type="email" class="form-control form-control-lg" placeholder="Email" name="email" aria-label="Email" value="{{ old('email') }}" required>
+            @error('email') <span class="text-danger">{{ $message }}</span> @enderror
             <label for="email">Email</label>
-                    </div>
+        </div>
         <div class="form-floating">
-            <input type="password" class="form-control " id="password" name="password" placeholder="Masukan Password" required="">
+            <input type="password" class="form-control form-control-lg" placeholder="Password" name="password" aria-label="Password" required>
+            @error('password') <span class="text-danger">{{ $message }}</span> @enderror
             <label for="Password">Password</label>
-                    </div>
+        </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <a href="/" class="mt-2 w-100 btn btn-lg btn-secondary"> Cancel </a>
         <p class="mt-5 mb-3 text-muted">© tmisyariah.co.id</p>
