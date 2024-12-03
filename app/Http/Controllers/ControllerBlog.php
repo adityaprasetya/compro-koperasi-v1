@@ -33,7 +33,7 @@ class ControllerBlog extends Controller
         // Mengambil daftar artikel terbaru untuk sidebar
         $blogs = ModelBlog::latest()->take(5)->get();  // Ambil 5 artikel terbaru
 
-        return view('artikel-single', compact('blog'));
+        return view('artikel-single', compact('blog', 'blogs'));
     }
 
     // Fungsi untuk mengambil gambar dari folder storage
