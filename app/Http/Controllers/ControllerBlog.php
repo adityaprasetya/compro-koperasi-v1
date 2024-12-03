@@ -28,10 +28,10 @@ class ControllerBlog extends Controller
     public function show($slug)
     {
         // Mengambil artikel berdasarkan slug
-        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $blog = ModelBlog::where('slug', $slug)->firstOrFail();
                 
         // Mengambil daftar artikel terbaru untuk sidebar
-        $blogs = Blog::latest()->take(5)->get();  // Ambil 5 artikel terbaru
+        $blogs = ModelBlog::latest()->take(5)->get();  // Ambil 5 artikel terbaru
 
         return view('artikel-single', compact('blog'));
     }
