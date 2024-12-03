@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\ModelBlog;
 
@@ -96,3 +98,17 @@ Route::get('/blogs/{id}/edit', [ControllerBlog::class, 'edit'])->name('blog.edit
 Route::delete('/blogs/{id}', [ControllerBlog::class, 'destroy'])->name('blog.destroy');
 Route::get('/artikel', [ControllerBlog::class, 'index'])->name('blog.index'); // Menampilkan semua artikel
 Route::get('/artikel/{slug}', [ControllerBlog::class, 'show'])->name('blog.show'); // Menampilkan detail artikel
+
+/* Image */
+Route::get('storage/{filename}', function ($filename) {
+    $path = storage_path('app/public/' . $filename);
+
+    if (file_exists($path)) {
+        return Response::make(file_get_contents($path), 200, [
+            'Content-Type' => mime_content_type($path),
+            'Content-Disposition' => 'inline; filename="' . $filename . '"'
+        ]);
+    }
+
+    abort(404);
+});
