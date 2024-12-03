@@ -60,26 +60,6 @@ Route::get('/dashboard', [ControllerDashboard::class, 'index'])
 ->name('dashboard')
 ->middleware('auth');
 
-Route::get('/absensi', function () {
-    return view('absensi');
-})->middleware('auth');
-
-Route::get('/absensiMurid', function () {
-    return view('absensimurid');
-})->middleware('auth');
-
-Route::get('/nilai', function () {
-    return view('nilai');
-})->middleware('auth');
-
-Route::get('/tugas', [ControllerTugas::class, 'index'])
-->name('tugas')
-->middleware('auth');
-
-Route::get('/soal', [ControllerTugas::class, 'index'])
-->name('tugas')
-->middleware('auth');
-
 Route::get('/akun', function () {
     return view('akun');
 })->middleware('auth');
@@ -99,6 +79,3 @@ Route::post('/daftar', [ControllerUser::class, 'daftar'])
 
 Route::post('/daftarAdmin', [ControllerUser::class, 'daftarAdmin'])
 ->name('daftaradmin.post');
-
-/* Tugas */
-Route::post('/tugas', [ControllerTugas::class, 'posting'])->name('tugas.post');
