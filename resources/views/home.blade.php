@@ -182,7 +182,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
                         <div class="col-lg-4 col-md-6 mb-4">
                 <div class="latest-post">
                     <div class="latest-post-media">
-                        <a href="#" class="latest-post-img">
+                        <a href="/artikel" class="latest-post-img">
                             <img loading="lazy" class="img-fluid" src="assets/1725275239.jpg" width="80px" alt="img">
                         </a>
                     </div>
@@ -207,7 +207,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
                     </div>
                     <div class="post-body">
                         <h4 class="post-title">
-                            <a href="#" class="d-inline-block">Koperasi Jantungnya Roda Perekonomian Bangsa</a>
+                            <a href="/artikel" class="d-inline-block">Koperasi Jantungnya Roda Perekonomian Bangsa</a>
                         </h4>
                         <div class="latest-post-meta">
                             <span class="post-item-date">
