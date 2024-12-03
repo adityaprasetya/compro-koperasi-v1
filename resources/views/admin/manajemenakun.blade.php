@@ -21,7 +21,7 @@
             </div>
             <div class="col-11 text-end">
                 <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
-                    <i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Data
+                    <i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Akun
                 </a>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
