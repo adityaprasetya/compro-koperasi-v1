@@ -48,7 +48,9 @@ Route::get('/kontak', function () {
 });
 
 Route::get('/artikel', function () {
-    return view('artikel');
+    // Ambil semua blog dan urutkan berdasarkan tanggal terbaru
+    $blogs = ModelBlog::latest()->take(10)->get(); // Ambil 6 artikel terbaru
+    return view('artikel', compact('blogs'));
 });
 
 Route::get('/artikel-single', function () {
