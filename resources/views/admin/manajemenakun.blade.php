@@ -33,7 +33,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pengguna</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aktif</th>
+                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aktif</th> -->
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dibuat</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                   </tr>
@@ -58,10 +58,10 @@
                         </div>
                       </div>
                     </td>
-                    <td>
+                    <!-- <td>
                       <p class="text-xs font-weight-bold mb-0">{{ ucfirst($user->role) }}</p>
                       <p class="text-xs text-secondary mb-0">{{ $user->username }}</p>
-                    </td>
+                    </td> -->
                     <td class="align-middle text-center text-sm">
                       <span class="badge badge-sm bg-gradient-success">{{ $user->is_active ? 'Online' : 'Offline' }}</span>
                     </td>

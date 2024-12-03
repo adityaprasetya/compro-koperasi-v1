@@ -62,7 +62,7 @@
                 <p class="text-xs text-secondary mb-0">{{ $blog->author->email }}</p>
             </td>
             <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-success">{{ $blog->status == 1 ? 'Aktif' : 'Non-Aktif' }}</span> <!-- Status blog -->
+                <span class="badge badge-sm bg-gradient-success">{{ $blog->status == 1 ? 'Online' : 'Offline' }}</span> <!-- Status blog -->
             </td>
             <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold">{{ $blog->created_at->format('d/m/y') }}</span>
