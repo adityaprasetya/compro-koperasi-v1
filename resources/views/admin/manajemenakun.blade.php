@@ -62,9 +62,12 @@
                       <p class="text-xs font-weight-bold mb-0">{{ ucfirst($user->role) }}</p>
                       <p class="text-xs text-secondary mb-0">{{ $user->username }}</p>
                     </td> -->
-                    <td class="align-middle text-center text-sm">
-                      <span class="badge badge-sm bg-gradient-success">{{ $user->is_active ? 'Online' : 'Offline' }}</span>
+                    <td>
+                    <span class="badge badge-sm bg-gradient-success">{{ $user->is_active ? 'Online' : 'Offline' }}</span>
                     </td>
+                    <!-- <td class="align-middle text-center text-sm">
+                      <span class="badge badge-sm bg-gradient-success">{{ $user->is_active ? 'Online' : 'Offline' }}</span>
+                    </td> -->
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold">{{ $user->created_at->format('d/m/y') }}</span>
                     </td>
