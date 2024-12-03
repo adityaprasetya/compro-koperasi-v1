@@ -102,11 +102,11 @@
                                 </div>
                                 
                                 <!-- Input Username -->
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
                                     <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ old('username') }}" required>
                                     @error('username') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
+                                </div> -->
                                 
                                 <!-- Input Email -->
                                 <div class="mb-3">
@@ -129,14 +129,14 @@
                                 </div>
                                 
                                 <!-- Input Phone -->
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="phone" class="form-label">Nomor Telepon</label>
                                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon" value="{{ old('phone') }}">
                                     @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
+                                </div> -->
 
                                 <!-- Dropdown Role (Murid / Guru) -->
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="role" class="form-label">Pilih Peran</label>
                                     <select class="form-select" id="role" name="role" required>
                                         <option value="" disabled selected>Pilih Peran</option>
@@ -144,7 +144,7 @@
                                         <option value="guru">Guru</option>
                                     </select>
                                     @error('role') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
+                                </div> -->
                                 
                                 <!-- Submit Button -->
                                 <div class="modal-footer">

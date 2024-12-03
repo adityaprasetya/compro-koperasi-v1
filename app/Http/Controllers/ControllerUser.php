@@ -81,17 +81,14 @@ class ControllerUser extends Controller
         // Simpan pengguna baru ke database
         $user = ModelUser::create([
             'name' => $request->name,
-            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password), // Enkripsi password
-            'role' => $request->role, // Sesuaikan role jika perlu
-            'phone' => $request->phone, // Jika ada field phone di form
         ]);
 
         // Setelah berhasil, login otomatis atau redirect sesuai kebutuhan
         // auth()->login($user);
 
         // Redirect ke halaman yang diinginkan setelah register, bisa ke dashboard atau halaman lain
-        return redirect()->route('manajemenakun'); // Pastikan Anda sudah membuat route 'dashboard'
+        return redirect()->route('admin.manajemenakun'); // Pastikan Anda sudah membuat route 'dashboard'
     }
 }
