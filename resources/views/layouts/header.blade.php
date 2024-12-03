@@ -21,22 +21,31 @@
 
     <!-- CSS
 ================================================== -->
-    <link href="assets/icon.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <!-- FontAwesome -->
-    <!-- <link rel="stylesheet" href="assets/all.min.css"> -->
-    <!-- Animation -->
-    <link rel="stylesheet" href="assets/animate.css">
-    <!-- slick Carousel -->
-    <link rel="stylesheet" href="{{ asset('assets/slick.css') }}">
-    <link rel="stylesheet" href="assets/slick-theme.css">
-    <!-- Colorbox -->
-    <link rel="stylesheet" href="assets/colorbox.css">
-    <!-- Template styles-->
-    <link rel="stylesheet" href="assets/style.css">
-    <!-- wa floating btn-->
-    <link rel="stylesheet" href="{{ asset('assets/wabtn.css') }}">
+    <!-- Icon CSS -->
+<link href="{{ asset('assets/icon.css') }}" rel="stylesheet">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{{ asset('assets/bootstrap.min.css') }}">
+
+<!-- FontAwesome (Jika aktifkan, pastikan URL yang benar) -->
+<!-- <link rel="stylesheet" href="{{ asset('assets/all.min.css') }}"> -->
+
+<!-- Animation CSS -->
+<link rel="stylesheet" href="{{ asset('assets/animate.css') }}">
+
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="{{ asset('assets/slick.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/slick-theme.css') }}">
+
+<!-- Colorbox CSS -->
+<link rel="stylesheet" href="{{ asset('assets/colorbox.css') }}">
+
+<!-- Template Styles -->
+<link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+
+<!-- WhatsApp Floating Button CSS -->
+<link rel="stylesheet" href="{{ asset('assets/wabtn.css') }}">
+
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <style>
