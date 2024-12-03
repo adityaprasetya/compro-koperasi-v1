@@ -182,13 +182,13 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
                         <div class="col-lg-4 col-md-6 mb-4">
                 <div class="latest-post">
                     <div class="latest-post-media">
-                        <a href="https://tmisyariah.co.id/artikel/sejarah-koperasi" class="latest-post-img">
+                        <a href="#" class="latest-post-img">
                             <img loading="lazy" class="img-fluid" src="assets/1725275239.jpg" width="80px" alt="img">
                         </a>
                     </div>
                     <div class="post-body">
                         <h4 class="post-title">
-                            <a href="https://tmisyariah.co.id/artikel/sejarah-koperasi" class="d-inline-block">Sejarah Koperasi</a>
+                            <a href="#" class="d-inline-block">Sejarah Koperasi</a>
                         </h4>
                         <div class="latest-post-meta">
                             <span class="post-item-date">
@@ -201,13 +201,13 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
                         <div class="col-lg-4 col-md-6 mb-4">
                 <div class="latest-post">
                     <div class="latest-post-media">
-                        <a href="https://tmisyariah.co.id/artikel/koperasi-jantungnya-roda-perekonomian-bangsa" class="latest-post-img">
+                        <a href="#" class="latest-post-img">
                             <img loading="lazy" class="img-fluid" src="assets/1724903464.png" width="80px" alt="img">
                         </a>
                     </div>
                     <div class="post-body">
                         <h4 class="post-title">
-                            <a href="https://tmisyariah.co.id/artikel/koperasi-jantungnya-roda-perekonomian-bangsa" class="d-inline-block">Koperasi Jantungnya Roda Perekonomian Bangsa</a>
+                            <a href="#" class="d-inline-block">Koperasi Jantungnya Roda Perekonomian Bangsa</a>
                         </h4>
                         <div class="latest-post-meta">
                             <span class="post-item-date">
