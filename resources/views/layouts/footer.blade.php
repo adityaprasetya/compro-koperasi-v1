@@ -19,7 +19,7 @@
                     <h3 class="widget-title">Tentang Kami</h3>
                     <img loading="lazy" width="80px" class="footer-logo" src="{{ asset('assets/logo-gh-test-white.png') }}" alt="Constra">
                     <p class="text-white">Koperasi Simpan Pinjam dan Pembiayaan Syariah Telaga Mandiri Indonesia adalah merupakan transformasi dari sebuah Koperasi bernama Koperasi Hipmikindo Global SME’S.</p>
-                    <a href="https://tmisyariah.co.id/tentang" class="text-white">Selengkapnya</a>
+                    <a href="/visi-misi" class="text-white">Selengkapnya</a>
                     <br>
                     <hr>
                     <p class="text-white">Temukan kami:</p>
