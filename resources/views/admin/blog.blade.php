@@ -27,6 +27,62 @@
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
 
+              <table class="table align-items-center mb-0">
+    <thead>
+        <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul Blog</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Penulis</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dibuat</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($blogs as $index => $blog)
+        <tr>
+            <td>
+                <div class="d-flex px-2 py-1">
+                    <div>{{ $index + 1 }}</div> <!-- Menampilkan nomor urut -->
+                </div>
+            </td>
+            <td>
+                <div class="d-flex px-2 py-1">
+                    <div>
+                        <img src="https://via.placeholder.com/150" class="avatar avatar-sm me-3" alt="{{ $blog->title }}">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{ $blog->title }}</h6>
+                        <p class="text-xs text-secondary mb-0">{{ Str::limit($blog->content, 100) }}</p> <!-- Menampilkan potongan konten -->
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="text-xs font-weight-bold mb-0">{{ $blog->author->name }}</p> <!-- Menampilkan nama penulis -->
+                <p class="text-xs text-secondary mb-0">{{ $blog->author->email }}</p>
+            </td>
+            <td class="align-middle text-center text-sm">
+                <span class="badge badge-sm bg-gradient-success">{{ $blog->status == 1 ? 'Aktif' : 'Non-Aktif' }}</span> <!-- Status blog -->
+            </td>
+            <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold">{{ $blog->created_at->format('d/m/y') }}</span>
+            </td>
+            <td class="align-middle">
+                <a href="{{ route('blog.edit', $blog->id) }}" class="badge badge-sm bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit blog">
+                    Ubah
+                </a>
+                <form action="{{ route('blog.destroy', $blog->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="badge badge-sm bg-gradient-danger" data-toggle="tooltip" data-original-title="Hapus blog">
+                        Hapus
+                    </button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 
 
               </div>
