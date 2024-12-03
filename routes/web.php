@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\ModelBlog;
+
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
 use App\Http\Controllers\ControllerBlog;
@@ -20,7 +22,9 @@ use App\Http\Controllers\ControllerDashboard;
 
 /* View */
 Route::get('/', function () {
-    return view('home');
+    // Ambil semua blog dan urutkan berdasarkan tanggal terbaru
+    $blogs = ModelBlog::latest()->take(3)->get(); // Ambil 6 artikel terbaru
+    return view('home', compact('blogs'));
 });
 
 Route::get('/visi-misi', function () {
@@ -90,3 +94,5 @@ Route::post('/daftarAdmin', [ControllerUser::class, 'daftarAdmin'])
 Route::post('/blog', [ControllerBlog::class, 'store'])->name('blog.store');
 Route::get('/blogs/{id}/edit', [ControllerBlog::class, 'edit'])->name('blog.edit');
 Route::delete('/blogs/{id}', [ControllerBlog::class, 'destroy'])->name('blog.destroy');
+Route::get('/artikel', [BlogController::class, 'index'])->name('blog.index'); // Menampilkan semua artikel
+Route::get('/artikel/{slug}', [BlogController::class, 'show'])->name('blog.show'); // Menampilkan detail artikel

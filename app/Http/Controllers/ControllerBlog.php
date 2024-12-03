@@ -24,6 +24,13 @@ class ControllerBlog extends Controller
 
     }
 
+    // Menampilkan detail artikel
+    public function show($slug)
+    {
+        $blog = Blog::where('slug', $slug)->firstOrFail(); // Ambil artikel berdasarkan slug
+        return view('blog.show', compact('blog'));
+    }
+
     // Menangani form untuk membuat dan menyimpan blog
     public function store(Request $request)
 {
