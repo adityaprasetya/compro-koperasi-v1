@@ -27,7 +27,7 @@ class ControllerBlog extends Controller
     // Menampilkan detail artikel
     public function show($slug)
     {
-        $blog = Blog::where('slug', $slug)->firstOrFail(); // Ambil artikel berdasarkan slug
+        $blog = ModelBlog::where('slug', $slug)->firstOrFail(); // Ambil artikel berdasarkan slug
         return view('blog.show', compact('blog'));
     }
 
@@ -71,8 +71,8 @@ class ControllerBlog extends Controller
     public function edit($id)
     {
         // Ambil data blog berdasarkan ID
-        $blog = Blog::findOrFail($id);
-        $users = User::all(); // Ambil semua data pengguna untuk dipilih sebagai author
+        $blog = ModelBlog::findOrFail($id);
+        $users = ModelUser::all(); // Ambil semua data pengguna untuk dipilih sebagai author
         return view('blog.edit', compact('blog', 'users'));
     }
 
@@ -94,7 +94,7 @@ class ControllerBlog extends Controller
         }
 
         // Ambil data blog berdasarkan ID
-        $blog = Blog::findOrFail($id);
+        $blog = ModelBlog::findOrFail($id);
 
         // Update blog
         $blog->update([
@@ -111,7 +111,7 @@ class ControllerBlog extends Controller
     public function destroy($id)
     {
         // Ambil data blog berdasarkan ID
-        $blog = Blog::findOrFail($id);
+        $blog = ModelBlog::findOrFail($id);
 
         // Hapus blog
         $blog->delete();
