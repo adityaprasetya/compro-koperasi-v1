@@ -36,7 +36,7 @@
     <!-- Template styles-->
     <link rel="stylesheet" href="assets/style.css">
     <!-- wa floating btn-->
-    <link rel="stylesheet" href="assets/wabtn.css">
+    <link rel="stylesheet" href="{{ asset('assets/wabtn.css') }}">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <style>
