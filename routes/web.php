@@ -61,7 +61,7 @@ Route::get('/dashboard', [ControllerDashboard::class, 'index'])
 ->middleware('auth');
 
 Route::get('/akun', function () {
-    return view('akun');
+    return view('admin.akun');
 })->middleware('auth');
 
 Route::get('/manajemenakun', [ControllerUser::class, 'akun'])
