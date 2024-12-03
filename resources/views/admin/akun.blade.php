@@ -1,5 +1,5 @@
 <!-- Header -->
-@include('layouts.header')
+@include('admin.layouts.header')
 
 <body class="g-sidenav-show bg-gray-100">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
@@ -7,12 +7,12 @@
   </div>
   
   <!-- Sidebar -->
-  @include('layouts.sidebar')
+  @include('admin.layouts.sidebar')
 
   <div class="main-content position-relative max-height-vh-100 h-100">
     
   <!-- Navbar -->
-  @include('layouts.navbar')
+  @include('admin.layouts.navbar')
 
     <div class="card shadow-lg mx-4 card-profile-bottom">
       <div class="card-body p-3">
@@ -197,14 +197,14 @@
       </div>
       
       <!-- Footer -->
-      @include('layouts.footer')
+      @include('admin.layouts.footer')
 
     </div>
   </div>
   
   
   <!-- Customize -->
-  @include('layouts.customize')
+  @include('admin.layouts.customize')
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
