@@ -48,7 +48,7 @@
 
                     <div class="entry-content">
                         <!-- Potongan konten artikel -->
-                        <p>{{ Str::limit($blog->content, 150) }}</p>
+                        <p>{{ substr($blog->content, 0, 100) }}...</p>
                     </div>
 
                     <div class="post-footer">
