@@ -1,8 +1,8 @@
 <!-- Header -->
 @include('admin.layouts.header')
 
-<body class="g-sidenav-show   bg-gray-100">
-  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+<body class="g-sidenav-show   ">
+  <div class="min-height-300  position-absolute w-100"></div>
 
   <!-- Sidebar -->
   @include('admin.layouts.sidebar')
