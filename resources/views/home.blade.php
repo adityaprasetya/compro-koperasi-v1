@@ -202,7 +202,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         </div>
 
         <div class="general-btn text-center mt-4">
-            <a class="btn btn-primary" href="{{ route('/artikel') }}">See All Posts</a>
+            <a class="btn btn-primary" href="/artikel">See All Posts</a>
         </div>
     </div>
 </section>
