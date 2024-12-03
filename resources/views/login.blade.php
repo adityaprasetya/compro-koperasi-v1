@@ -32,6 +32,7 @@
 <body class="text-center">
     <main class="form-signin">
     <form method="POST" action="{{ route('login.post') }}">
+    @csrf
     <img class="mb-4" src="assets/login/logo-gh-test.png" alt="" width="200">
         <h1 class="h3 mb-3 fw-normal">Form Login</h1>
         <div class="form-floating">
