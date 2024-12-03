@@ -1,11 +1,11 @@
 <!-- Header -->
-@include('admin.layouts.header')
+@include('layouts.header')
 
 <body>
     <div class="body-inner">
 
 <!-- Navbar -->
-@include('admin.layouts.navbar')
+@include('layouts.navbar')
 
 <div class="container">
         <div class="row">
@@ -70,4 +70,4 @@
     </div><!-- Container end -->
 
 <!-- Footer -->
-@include('admin.layouts.footer')
+@include('layouts.footer')
