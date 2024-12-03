@@ -25,7 +25,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="assets/all.min.css">
+    <!-- <link rel="stylesheet" href="assets/all.min.css"> -->
     <!-- Animation -->
     <link rel="stylesheet" href="assets/animate.css">
     <!-- slick Carousel -->
