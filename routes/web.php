@@ -22,8 +22,9 @@ use App\Http\Controllers\ControllerDashboard;
 
 /* View */
 Route::get('/', function () {
-    // Ambil semua blog dan urutkan berdasarkan tanggal terbaru
-    $blogs = ModelBlog::latest()->take(3)->get(); // Ambil 6 artikel terbaru
+    // Mengambil artikel berdasarkan slug
+    $blogs = ModelBlog::where('slug', $slug)->firstOrFail();
+
     return view('home', compact('blogs'));
 });
 
