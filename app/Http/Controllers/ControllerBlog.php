@@ -42,7 +42,7 @@ class ControllerBlog extends Controller
         }
 
         // Simpan blog baru ke database
-        Blog::create([
+        ModelBlog::create([
             'title' => $request->title,
             'content' => $request->content,
             'author_id' => $request->author_id,
