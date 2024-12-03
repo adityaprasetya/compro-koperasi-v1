@@ -25,7 +25,7 @@ class ControllerUser extends Controller
         $pageTitle = 'Manajemen Akun';
 
         // Kirim data pengguna ke tampilan
-        return view('manajemenakun', compact('users', 'pageTitle'));
+        return view('admin.manajemenakun', compact('users', 'pageTitle'));
     }
 
     // Menangani form register dan menyimpan data pengguna

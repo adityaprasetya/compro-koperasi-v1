@@ -1,16 +1,16 @@
 <!-- Header -->
-@include('layouts.header')
+@include('admin.layouts.header')
 
 <body class="g-sidenav-show   bg-gray-100">
   <div class="min-height-300 bg-dark position-absolute w-100"></div>
   
   <!-- Sidebar -->
-  @include('layouts.sidebar')
+  @include('admin.layouts.sidebar')
   
   <main class="main-content position-relative border-radius-lg ">
     
   <!-- Navbar -->
-  @include('layouts.navbar')
+  @include('admin.layouts.navbar')
 
     <div class="container-fluid py-4">
       <div class="row">
@@ -386,13 +386,13 @@
       </div> -->
       
       <!-- Footer -->
-      @include('layouts.footer')
+      @include('admin.layouts.footer')
 
     </div>
   </main>
   
   <!-- Customize -->
-  @include('layouts.customize')
+  @include('admin.layouts.customize')
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
