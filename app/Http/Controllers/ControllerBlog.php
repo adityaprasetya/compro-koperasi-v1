@@ -49,7 +49,7 @@ class ControllerBlog extends Controller
         ]);
 
         // Redirect ke halaman daftar blog setelah berhasil
-        return redirect()->route('blog.list')->with('success', 'Blog berhasil dibuat');
+        return redirect()->route('blog')->with('success', 'Blog berhasil dibuat');
     }
 
     // Menampilkan form untuk mengedit blog
