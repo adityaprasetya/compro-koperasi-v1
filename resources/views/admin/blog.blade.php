@@ -20,7 +20,7 @@
               <h6>Blog</h6>
             </div>
             <div class="col-11 text-end">
-                <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
+                <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#tambahBlogModal">
                     <i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Blog
                 </a>
             </div>
