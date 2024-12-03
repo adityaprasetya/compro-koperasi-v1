@@ -88,78 +88,43 @@
               </div>
             </div>
 
-            <div class="modal fade" id="tambahDataModal" tabindex="-1" aria-labelledby="tambahDataModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data Akun</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="{{ route('daftaradmin.post') }}">
-                                @csrf
-                                <!-- Input Name -->
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="{{ old('name') }}" required>
-                                    @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
-                                
-                                <!-- Input Username -->
-                                <!-- <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ old('username') }}" required>
-                                    @error('username') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div> -->
-                                
-                                <!-- Input Email -->
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
-                                
-                                <!-- Input Password -->
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                                    @error('password') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
-                                
-                                <!-- Input Confirm Password -->
-                                <div class="mb-3">
-                                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password" required>
-                                </div>
-                                
-                                <!-- Input Phone -->
-                                <!-- <div class="mb-3">
-                                    <label for="phone" class="form-label">Nomor Telepon</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telepon" value="{{ old('phone') }}">
-                                    @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div> -->
-
-                                <!-- Dropdown Role (Murid / Guru) -->
-                                <!-- <div class="mb-3">
-                                    <label for="role" class="form-label">Pilih Peran</label>
-                                    <select class="form-select" id="role" name="role" required>
-                                        <option value="" disabled selected>Pilih Peran</option>
-                                        <option value="murid">Murid</option>
-                                        <option value="guru">Guru</option>
-                                    </select>
-                                    @error('role') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div> -->
-                                
-                                <!-- Submit Button -->
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                  <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal fade" id="tambahBlogModal" tabindex="-1" aria-labelledby="tambahBlogModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahBlogModalLabel">Tambah Blog Baru</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('blog.store') }}">
+                    @csrf
+                    <!-- Input Title -->
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Judul Blog</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Judul Blog" value="{{ old('title') }}" required>
+                        @error('title') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Input Content -->
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Konten Blog</label>
+                        <textarea class="form-control" id="content" name="content" placeholder="Konten Blog" rows="4" required>{{ old('content') }}</textarea>
+                        @error('content') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Penulis (Di-set otomatis sesuai yang login) -->
+                    <input type="hidden" name="author_id" value="{{ auth()->user()->id }}">
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
           </div>
         </div>
