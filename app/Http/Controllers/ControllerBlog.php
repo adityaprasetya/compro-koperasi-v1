@@ -35,7 +35,7 @@ class ControllerBlog extends Controller
     public function getImage($filename)
     {
         // Tentukan path file di storage
-        $path = storage_path('public/' . $filename);
+        $path = storage_path('app/public/' . $filename);
 
         // Cek apakah file ada di dalam storage
         if (!file_exists($path)) {
