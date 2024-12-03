@@ -18,6 +18,7 @@ class ModelBlog extends Model
         'content', 
         'author_id', 
         'status', 
+        'image',
         'published_at',
     ];
 

@@ -49,7 +49,11 @@
             <td>
                 <div class="d-flex px-2 py-1">
                     <div>
-                        <img src="https://via.placeholder.com/150" class="avatar avatar-sm me-3" alt="{{ $blog->title }}">
+                    @if ($blog->image)
+                        <img src="{{ Storage::url($blog->image) }}" alt="Gambar Blog" style="width: 100px; height: auto;">
+                    @else
+                        <span class="text-secondary">Tidak ada gambar</span>
+                    @endif
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">{{ $blog->title }}</h6>
@@ -96,7 +100,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('blog.store') }}">
+                <form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data"> <!-- Tambahkan enctype -->
                     @csrf
                     <!-- Input Title -->
                     <div class="mb-3">
@@ -110,6 +114,13 @@
                         <label for="content" class="form-label">Konten Blog</label>
                         <textarea class="form-control" id="content" name="content" placeholder="Konten Blog" rows="4" required>{{ old('content') }}</textarea>
                         @error('content') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Input Gambar -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Gambar Blog</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <!-- Penulis (Di-set otomatis sesuai yang login) -->

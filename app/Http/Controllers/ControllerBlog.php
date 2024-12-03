@@ -17,7 +17,7 @@ class ControllerBlog extends Controller
     $blogs = ModelBlog::with('author')->get();  // Pastikan untuk eager load author (penulis)
 
     // Menambahkan pageTitle untuk halaman manajemen blog
-    $pageTitle = 'Manajemen Blog';
+    $pageTitle = 'Blog';
 
     // Kirim data blog ke tampilan
     return view('admin.blog', compact('blogs', 'pageTitle'));
@@ -26,31 +26,39 @@ class ControllerBlog extends Controller
 
     // Menangani form untuk membuat dan menyimpan blog
     public function store(Request $request)
-    {
-        // Validasi inputan dari form
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'author_id' => 'required|exists:users,id', // Pastikan author_id ada di tabel users
-        ]);
+{
+    // Validasi inputan dari form
+    $validator = Validator::make($request->all(), [
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi gambar
+    ]);
 
-        // Jika validasi gagal, kembalikan dengan error
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        // Simpan blog baru ke database
-        ModelBlog::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'author_id' => $request->author_id,
-        ]);
-
-        // Redirect ke halaman daftar blog setelah berhasil
-        return redirect()->route('blog')->with('success', 'Blog berhasil dibuat');
+    // Jika validasi gagal, kembalikan dengan error
+    if ($validator->fails()) {
+        return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
     }
+
+    // Menangani gambar jika ada
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images', 'public'); // Menyimpan gambar di folder 'public/images'
+    } else {
+        $imagePath = null; // Jika tidak ada gambar, set null
+    }
+
+    // Simpan blog baru ke database
+    ModelBlog::create([
+        'title' => $request->title,
+        'content' => $request->content,
+        'author_id' => auth()->user()->id, // Penulis diambil dari pengguna yang sedang login
+        'image' => $imagePath, // Menyimpan path gambar
+    ]);
+
+    // Redirect ke halaman daftar blog setelah berhasil
+    return redirect()->route('blog')->with('success', 'Blog berhasil dibuat');
+}
 
     // Menampilkan form untuk mengedit blog
     public function edit($id)
