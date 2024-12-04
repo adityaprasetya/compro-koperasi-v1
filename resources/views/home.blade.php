@@ -1,13 +1,99 @@
 <!-- Header -->
 @include('layouts.header')
 
+<style>
+
+/* 1. Styling untuk container utama slider */
+.banner-carousel {
+    width: 100%; /* Agar slider mengisi lebar penuh dari container induk */
+    position: relative;
+    overflow: hidden; /* Menyembunyikan elemen yang keluar dari area tampilan */
+}
+
+/* 2. Styling untuk setiap item slider */
+.banner-carousel-item {
+    background-size: cover; /* Agar gambar menutupi seluruh elemen tanpa distorsi */
+    background-position: center; /* Menjaga gambar tetap terpusat */
+    height: 400px; /* Sesuaikan tinggi slider sesuai kebutuhan */
+    display: flex;
+    align-items: center; /* Menyelaraskan konten di tengah secara vertikal */
+    justify-content: center; /* Menyelaraskan konten di tengah secara horizontal */
+}
+
+/* 3. Styling untuk konten di dalam slider */
+.box-slider-content {
+    position: absolute;
+    top: 50%; /* Posisi konten di tengah vertikal */
+    left: 50%; /* Posisi konten di tengah horizontal */
+    transform: translate(-50%, -50%); /* Untuk memastikan konten benar-benar berada di tengah */
+    color: #fff; /* Warna teks agar lebih terlihat di atas gambar */
+    text-align: center; /* Menyelaraskan teks ke tengah */
+    padding: 20px;
+}
+
+/* 4. Styling untuk sub judul dan deskripsi */
+.box-slide-sub-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.box-slide-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.slider.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* 5. Styling untuk tombol navigasi (arrow) */
+.slick-prev, .slick-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    padding: 10px;
+    z-index: 999;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+/* 6. Styling untuk titik navigasi (dots) */
+.slick-dots {
+    bottom: 20px;
+    z-index: 999;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #007bff;
+}
+
+</style>
+
 <body>
     <div class="body-inner">
 
 <!-- Navbar -->
 @include('layouts.navbar')
 
-<div class="banner-carousel banner-carousel-2 slick-initialized slick-slider">
+<div class="banner-carousel">
     <button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control">
         <i class="fas fa-chevron-left"></i>
     </button>
@@ -34,7 +120,6 @@
         <i class="fas fa-chevron-right"></i>
     </button>
 </div>
-
 
 <section class="call-to-action no-padding">
     <div class="container">
@@ -230,28 +315,42 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
 <!-- Footer -->
 @include('layouts.footer')
 
-<!-- Link ke jQuery (Slick membutuhkan jQuery) -->
+<!-- Pastikan Anda sudah menyertakan jQuery dan Slick Carousel -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Link ke CSS Slick -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
-<!-- Link ke JS Slick -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script>
     $(document).ready(function(){
+        // Inisialisasi Slick Carousel
         $('.banner-carousel').slick({
-            infinite: true,  // Untuk menampilkan gambar secara terus menerus
-            slidesToShow: 1, // Menampilkan 1 slide per waktu
-            slidesToScroll: 1, // Scroll 1 slide pada setiap navigasi
-            prevArrow: '.carousel-control.left', // Tombol untuk navigasi kiri
-            nextArrow: '.carousel-control.right', // Tombol untuk navigasi kanan
-            autoplay: true, // Membuat slider bergerak otomatis
-            autoplaySpeed: 5000, // Waktu antar slide (dalam milidetik)
-            arrows: true, // Menampilkan tombol navigasi
-            dots: true, // Menampilkan indikator (titik) di bawah slider
+            infinite: true,  // Mengaktifkan infinite scrolling
+            slidesToShow: 1,  // Menampilkan 1 slide per waktu
+            slidesToScroll: 1, // Mengscroll 1 slide pada setiap klik
+            prevArrow: '.carousel-control.left',  // Tombol untuk navigasi kiri
+            nextArrow: '.carousel-control.right',  // Tombol untuk navigasi kanan
+            autoplay: true,  // Menjalankan autoplay
+            autoplaySpeed: 5000,  // Kecepatan peralihan slide (5 detik)
+            arrows: true,  // Menampilkan tombol navigasi (arrow)
+            dots: true,  // Menampilkan titik navigasi
+            adaptiveHeight: true,  // Menyesuaikan tinggi slider otomatis
+            responsive: [
+                {
+                    breakpoint: 768, // Untuk perangkat dengan lebar layar 768px atau lebih kecil
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480, // Untuk perangkat dengan lebar layar 480px atau lebih kecil
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
         });
     });
 </script>
