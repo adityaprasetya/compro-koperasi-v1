@@ -203,6 +203,10 @@
   @include('admin.layouts.customize')
 
   <!--   Core JS Files   -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -210,23 +214,34 @@
   <script src="assets/js/plugins/chartjs.min.js"></script>
 
   <script>
-    // Ketika tombol "Ubah" diklik
-    $('#editBlogModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Tombol yang diklik
-        var id = button.data('id');
-        var title = button.data('title');
-        var content = button.data('content');
-        var image = button.data('image');
+    $(document).ready(function () {
+        // Ketika modal edit blog akan ditampilkan
+        $('#editBlogModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Tombol yang diklik untuk membuka modal
+            var id = button.data('id'); // Ambil data ID
+            var title = button.data('title'); // Ambil data title
+            var content = button.data('content'); // Ambil data content
+            var image = button.data('image'); // Ambil data image
 
-        var modal = $(this);
-        modal.find('#title').val(title);  // Set nilai input title
-        modal.find('#content').val(content);  // Set nilai input content
-        modal.find('#image').val(''); // Biarkan input file kosong
+            // Set data ke input dalam modal
+            var modal = $(this);
+            modal.find('#title').val(title);  // Set nilai input title
+            modal.find('#content').val(content);  // Set nilai input content
+            modal.find('#image').val(''); // Kosongkan input file image (karena kita tidak bisa menampilkan file yang sudah ada)
 
-        // Mengubah form action untuk menggunakan ID yang dipilih
-        var action = '/';
-        action = action.replace(':id', id);
-        modal.find('#editBlogForm').attr('action', action); // Update form action
+            // Jika Anda ingin menampilkan gambar yang sudah ada, Anda bisa menambahkan elemen gambar di bawah ini:
+            if (image) {
+                modal.find('#currentImage').show(); // Menampilkan gambar saat ini di modal
+                modal.find('#currentImage').attr('src', '/storage/images/' + image); // Mengatur path gambar yang benar
+            } else {
+                modal.find('#currentImage').hide(); // Menyembunyikan gambar jika tidak ada gambar
+            }
+
+            // Update action URL form dengan ID yang benar
+            var action = "/";
+            action = action.replace(':id', id); // Mengganti :id dengan ID blog yang dipilih
+            modal.find('#editBlogForm').attr('action', action); // Update URL form action
+        });
     });
 </script>
 
