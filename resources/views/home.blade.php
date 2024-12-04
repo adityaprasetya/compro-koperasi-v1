@@ -7,21 +7,21 @@
 <!-- Navbar -->
 @include('layouts.navbar')
 
-<div class="banner-carousel banner-carousel-2 slick-initialized slick-slider">
-    <button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control" style="">
+<div class="banner-carousel">
+    <button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control">
         <i class="fas fa-chevron-left"></i>
     </button>
     <div class="slick-list draggable">
-        <div class="slick-track" style="opacity: 1; width: 2732px;">
+        <div class="slick-track">
             @foreach ($sliders as $slider)
-            <div class="banner-carousel-item slick-slide" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); width: 1366px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" data-slick-index="0" aria-hidden="false" tabindex="0">   
+            <div class="banner-carousel-item slick-slide" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}');">
                 <div class="container">
                     <div class="box-slider-content">
                         <div class="box-slider-text">
                             <h3 class="box-slide-sub-title">Selamat Datang</h3>
                             <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
                             <p>
-                                <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary" tabindex="0">Klik untuk informasi lebih lanjut</a>
+                                <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary">Klik untuk informasi lebih lanjut</a>
                             </p>
                         </div>
                     </div>
@@ -30,10 +30,11 @@
             @endforeach
         </div>
     </div>
-    <button type="button" class="carousel-control right slick-arrow" aria-label="carousel-control" style="">
+    <button type="button" class="carousel-control right slick-arrow" aria-label="carousel-control">
         <i class="fas fa-chevron-right"></i>
     </button>
 </div>
+
 
 <section class="call-to-action no-padding">
     <div class="container">
@@ -228,3 +229,29 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
 
 <!-- Footer -->
 @include('layouts.footer')
+
+<!-- Link ke jQuery (Slick membutuhkan jQuery) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Link ke CSS Slick -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+<!-- Link ke JS Slick -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.banner-carousel').slick({
+            infinite: true,  // Untuk menampilkan gambar secara terus menerus
+            slidesToShow: 1, // Menampilkan 1 slide per waktu
+            slidesToScroll: 1, // Scroll 1 slide pada setiap navigasi
+            prevArrow: '.carousel-control.left', // Tombol untuk navigasi kiri
+            nextArrow: '.carousel-control.right', // Tombol untuk navigasi kanan
+            autoplay: true, // Membuat slider bergerak otomatis
+            autoplaySpeed: 5000, // Waktu antar slide (dalam milidetik)
+            arrows: true, // Menampilkan tombol navigasi
+            dots: true, // Menampilkan indikator (titik) di bawah slider
+        });
+    });
+</script>
