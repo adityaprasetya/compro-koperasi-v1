@@ -3,86 +3,37 @@
 
 <style>
 
-/* 1. Styling untuk container utama slider */
-.banner-carousel {
-    width: 100%; /* Agar slider mengisi lebar penuh dari container induk */
-    position: relative;
-    overflow: hidden; /* Menyembunyikan elemen yang keluar dari area tampilan */
+.carousel-item {
+    height: 500px; /* Sesuaikan tinggi carousel sesuai kebutuhan */
 }
 
-/* 2. Styling untuk setiap item slider */
-.banner-carousel-item {
-    background-size: cover; /* Agar gambar menutupi seluruh elemen tanpa distorsi */
-    background-position: center; /* Menjaga gambar tetap terpusat */
-    height: 400px; /* Sesuaikan tinggi slider sesuai kebutuhan */
-    display: flex;
-    align-items: center; /* Menyelaraskan konten di tengah secara vertikal */
-    justify-content: center; /* Menyelaraskan konten di tengah secara horizontal */
-}
-
-/* 3. Styling untuk konten di dalam slider */
-.box-slider-content {
+.carousel-item .carousel-caption {
     position: absolute;
-    top: 50%; /* Posisi konten di tengah vertikal */
-    left: 50%; /* Posisi konten di tengah horizontal */
-    transform: translate(-50%, -50%); /* Untuk memastikan konten benar-benar berada di tengah */
-    color: #fff; /* Warna teks agar lebih terlihat di atas gambar */
-    text-align: center; /* Menyelaraskan teks ke tengah */
-    padding: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
 }
 
-/* 4. Styling untuk sub judul dan deskripsi */
 .box-slide-sub-title {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .box-slide-description {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
 }
 
-.slider.btn {
-    background-color: #007bff;
-    color: #fff;
+.slider {
+    font-size: 1rem;
     padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
 }
 
-/* 5. Styling untuk tombol navigasi (arrow) */
-.slick-prev, .slick-next {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border-radius: 50%;
-    font-size: 18px;
-    padding: 10px;
-    z-index: 999;
-}
-
-.slick-prev {
-    left: 10px;
-}
-
-.slick-next {
-    right: 10px;
-}
-
-/* 6. Styling untuk titik navigasi (dots) */
-.slick-dots {
-    bottom: 20px;
-    z-index: 999;
-}
-
-.slick-dots li button:before {
-    font-size: 12px;
-    color: #fff;
-}
-
-.slick-dots li.slick-active button:before {
-    color: #007bff;
+/* Memastikan bahwa kontrol carousel terlihat dengan jelas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Mengubah warna ikon kontrol */
 }
 
 </style>
@@ -93,31 +44,28 @@
 <!-- Navbar -->
 @include('layouts.navbar')
 
-<div class="banner-carousel">
-    <button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control">
-        <i class="fas fa-chevron-left"></i>
-    </button>
-    <div class="slick-list draggable">
-        <div class="slick-track">
-            @foreach ($sliders as $slider)
-            <div class="banner-carousel-item slick-slide" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}');">
-                <div class="container">
-                    <div class="box-slider-content">
-                        <div class="box-slider-text">
-                            <h3 class="box-slide-sub-title">Selamat Datang</h3>
-                            <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
-                            <p>
-                                <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary">Klik untuk informasi lebih lanjut</a>
-                            </p>
-                        </div>
-                    </div>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @foreach ($sliders as $index => $slider)
+            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); background-size: cover; background-position: center;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="box-slide-sub-title">Selamat Datang</h3>
+                    <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
+                    <p>
+                        <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary">Klik untuk informasi lebih lanjut</a>
+                    </p>
                 </div>
             </div>
-            @endforeach
-        </div>
+        @endforeach
     </div>
-    <button type="button" class="carousel-control right slick-arrow" aria-label="carousel-control">
-        <i class="fas fa-chevron-right"></i>
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
     </button>
 </div>
 
@@ -315,42 +263,42 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
 <!-- Footer -->
 @include('layouts.footer')
 
-<!-- Pastikan Anda sudah menyertakan jQuery dan Slick Carousel -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- Bootstrap JS (untuk Carousel) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Custom JavaScript -->
 <script>
-    $(document).ready(function(){
-        // Inisialisasi Slick Carousel
-        $('.banner-carousel').slick({
-            infinite: true,  // Mengaktifkan infinite scrolling
-            slidesToShow: 1,  // Menampilkan 1 slide per waktu
-            slidesToScroll: 1, // Mengscroll 1 slide pada setiap klik
-            prevArrow: '.carousel-control.left',  // Tombol untuk navigasi kiri
-            nextArrow: '.carousel-control.right',  // Tombol untuk navigasi kanan
-            autoplay: true,  // Menjalankan autoplay
-            autoplaySpeed: 5000,  // Kecepatan peralihan slide (5 detik)
-            arrows: true,  // Menampilkan tombol navigasi (arrow)
-            dots: true,  // Menampilkan titik navigasi
-            adaptiveHeight: true,  // Menyesuaikan tinggi slider otomatis
-            responsive: [
-                {
-                    breakpoint: 768, // Untuk perangkat dengan lebar layar 768px atau lebih kecil
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480, // Untuk perangkat dengan lebar layar 480px atau lebih kecil
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
+    // Menunggu sampai halaman sepenuhnya dimuat
+    document.addEventListener('DOMContentLoaded', function () {
+        // Mendapatkan referensi ke element carousel
+        var myCarousel = document.querySelector('#carouselExample');
+        
+        // Membuat instance carousel menggunakan Bootstrap API
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 3000, // Interval diatur setiap 3 detik (3000ms)
+            ride: 'carousel', // Untuk autoplay
+            pause: 'hover'    // Hentikan autoplay jika cursor hover di atas carousel
+        });
+
+        // Event listener untuk ketika carousel berpindah slide
+        myCarousel.addEventListener('slid.bs.carousel', function (event) {
+            console.log('Slide berpindah! Indeks slide sekarang: ' + event.to);
+        });
+
+        // Contoh menambahkan kontrol tombol secara manual menggunakan JavaScript
+        // Mengatur untuk melompat ke slide tertentu (indeks 2 berarti slide ke-3)
+        document.getElementById('goToSlide3').addEventListener('click', function () {
+            carousel.to(2); // Berpindah ke slide ke-3
+        });
+
+        // Menghentikan autoplay dengan tombol
+        document.getElementById('pauseCarousel').addEventListener('click', function () {
+            carousel.pause(); // Hentikan autoplay
+        });
+
+        // Menjalankan kembali autoplay dengan tombol
+        document.getElementById('resumeCarousel').addEventListener('click', function () {
+            carousel.cycle(); // Mulai kembali autoplay
         });
     });
 </script>
