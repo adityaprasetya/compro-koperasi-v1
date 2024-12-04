@@ -17,7 +17,7 @@
               <h6>Galeri</h6>
             </div>
             <div class="col-11 text-end">
-                <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#tambahBlogModal">
+                <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#tambahGaleriModal">
                     <i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah Galeri
                 </a>
             </div>
