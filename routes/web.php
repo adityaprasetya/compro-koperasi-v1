@@ -8,6 +8,7 @@ use App\Models\ModelBlog;
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
 use App\Http\Controllers\ControllerBlog;
+use App\Http\Controllers\ControllerGaleri;
 use App\Http\Controllers\ControllerDashboard;
 
 /*
