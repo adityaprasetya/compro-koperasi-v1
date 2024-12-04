@@ -128,9 +128,68 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         <div class="row">
             <div class="col-12">
 
-                <div class="row shuffle-wrapper shuffle" style="position: relative; overflow: hidden; height: 0px; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1);">
-                    <div class="col-1 shuffle-sizer"></div>
-                    
+                <!-- Mulai Galeri -->
+                <div class="row shuffle-wrapper shuffle" style="position: relative; overflow: hidden;">
+                    <!-- Gambar 1 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 1" class="img-fluid">
+                    </div>
+                    <!-- Gambar 2 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 2" class="img-fluid">
+                    </div>
+                    <!-- Gambar 3 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 3" class="img-fluid">
+                    </div>
+                    <!-- Gambar 4 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 4" class="img-fluid">
+                    </div>
+                    <!-- Gambar 5 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 5" class="img-fluid">
+                    </div>
+                    <!-- Gambar 6 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 6" class="img-fluid">
+                    </div>
+                    <!-- Gambar 7 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 7" class="img-fluid">
+                    </div>
+                    <!-- Gambar 8 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 8" class="img-fluid">
+                    </div>
+                    <!-- Gambar 9 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 9" class="img-fluid">
+                    </div>
+                    <!-- Gambar 10 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 10" class="img-fluid">
+                    </div>
+                    <!-- Gambar 11 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 11" class="img-fluid">
+                    </div>
+                    <!-- Gambar 12 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 12" class="img-fluid">
+                    </div>
+                    <!-- Gambar 13 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 13" class="img-fluid">
+                    </div>
+                    <!-- Gambar 14 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 14" class="img-fluid">
+                    </div>
+                    <!-- Gambar 15 -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <img src="https://via.placeholder.com/350x250" alt="Gallery Image 15" class="img-fluid">
+                    </div>
                 </div><!-- shuffle end -->
             </div>
 
