@@ -21,9 +21,11 @@ class ControllerSliders extends Controller
 
     public function store(Request $request)
     {
-        // Validasi inputan dari form
+        // Validasi inputan gambar, gambar bersifat opsional
         $validator = Validator::make($request->all(), [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validasi gambar
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Slide 1
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Slide 2
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Slide 3
         ]);
 
         // Jika validasi gagal, kembalikan dengan error
@@ -33,25 +35,42 @@ class ControllerSliders extends Controller
                 ->withInput();
         }
 
-        // Menangani gambar jika ada
-        if ($request->hasFile('image')) {
-            // Ambil file gambar
-            $image = $request->file('image');
+        // Array untuk menyimpan nama gambar
+        $imagePaths = [];
 
-            // Mendapatkan nama file gambar (gunakan hashName() agar nama file unik)
-            $imageName = $image->getClientOriginalName(); // Menyimpan nama asli gambar
-
-            // Menyimpan gambar di dalam folder 'sliders' dalam public storage
-            $image->storeAs('sliders', $imageName, 'public');  // Simpan gambar dengan nama asli di 'public/sliders'
+        // Proses gambar 1 (Slide 1) - jika ada
+        if ($request->hasFile('image1')) {
+            $image1 = $request->file('image1');
+            $image1Name = $image1->getClientOriginalName();
+            $image1->storeAs('sliders', $image1Name, 'public');  // Menyimpan gambar di folder 'public/sliders'
+            $imagePaths[] = $image1Name;  // Tambahkan nama gambar ke array
         }
 
-        // Menyimpan informasi gambar ke tabel sliders (hanya nama file)
-        ModelSliders::create([
-            'image' => $imageName,  // Simpan hanya nama file gambar, bukan path
-        ]);
+        // Proses gambar 2 (Slide 2) - jika ada
+        if ($request->hasFile('image2')) {
+            $image2 = $request->file('image2');
+            $image2Name = $image2->getClientOriginalName();
+            $image2->storeAs('sliders', $image2Name, 'public');  // Menyimpan gambar di folder 'public/sliders'
+            $imagePaths[] = $image2Name;  // Tambahkan nama gambar ke array
+        }
 
-        // Redirect ke halaman sliders setelah berhasil
-        return redirect()->route('sliders')->with('success', 'Gambar berhasil ditambahkan');
+        // Proses gambar 3 (Slide 3) - jika ada
+        if ($request->hasFile('image3')) {
+            $image3 = $request->file('image3');
+            $image3Name = $image3->getClientOriginalName();
+            $image3->storeAs('sliders', $image3Name, 'public');  // Menyimpan gambar di folder 'public/sliders'
+            $imagePaths[] = $image3Name;  // Tambahkan nama gambar ke array
+        }
+
+        // Menyimpan setiap gambar sebagai record terpisah di database
+        foreach ($imagePaths as $image) {
+            ModelSlider::create([
+                'image' => $image,  // Simpan setiap nama gambar sebagai record terpisah
+            ]);
+        }
+
+        // Redirect setelah berhasil
+        return redirect()->route('sliders')->with('success', 'Slider berhasil ditambahkan');
     }
 
     public function destroy($id)
