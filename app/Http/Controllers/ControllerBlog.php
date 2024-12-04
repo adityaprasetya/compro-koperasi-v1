@@ -127,7 +127,7 @@ class ControllerBlog extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'author_id' => 'required|exists:users,id', // Pastikan author_id ada di tabel users
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi gambar
         ]);
 
         // Jika validasi gagal, kembalikan dengan error
@@ -137,18 +137,46 @@ class ControllerBlog extends Controller
                 ->withInput();
         }
 
-        // Ambil data blog berdasarkan ID
+        // Ambil data blog yang ingin diupdate
         $blog = ModelBlog::findOrFail($id);
 
-        // Update blog
+        // Menangani gambar jika ada
+        if ($request->hasFile('image')) {
+            // Menghapus gambar lama jika ada
+            if ($blog->image) {
+                Storage::disk('public')->delete('images/' . $blog->image); // Menghapus file gambar lama
+            }
+
+            // Ambil file gambar baru
+            $image = $request->file('image');
+            
+            // Mendapatkan nama file tanpa direktori (gunakan hashName() untuk memastikan nama file unik)
+            $imageName = $image->getClientOriginalName(); // Menyimpan nama asli gambar
+            $imagePath = $image->storeAs('images', $imageName, 'public'); // Simpan dengan nama file asli di folder 'images'
+        } else {
+            // Jika tidak ada gambar baru, biarkan gambar lama tetap digunakan
+            $imageName = $blog->image;
+        }
+
+        // Membuat slug berdasarkan title (jika title berubah)
+        $slug = Str::slug($request->title);
+
+        // Cek apakah slug sudah ada, jika ada tambahkan angka di belakang slug
+        if (ModelBlog::where('slug', $slug)->where('id', '<>', $id)->exists()) {
+            $slug = $slug . '-' . Str::random(4); // Tambahkan random string agar slug unik
+        }
+
+        // Update data blog
         $blog->update([
             'title' => $request->title,
             'content' => $request->content,
-            'author_id' => $request->author_id,
+            'slug' => $slug, // Menyimpan slug
+            'author_id' => auth()->user()->id, // Penulis diambil dari pengguna yang sedang login
+            'image' => $imageName, // Menyimpan nama file gambar, bukan path
         ]);
 
         // Redirect ke halaman daftar blog setelah berhasil
-        return redirect()->route('blog.list')->with('success', 'Blog berhasil diperbarui');
+        return redirect()->route('blog')->with('success', 'Blog berhasil diperbarui');
     }
 
     // Menghapus blog

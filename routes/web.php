@@ -97,7 +97,7 @@ Route::post('/daftarAdmin', [ControllerUser::class, 'daftarAdmin'])
 Route::post('/blog', [ControllerBlog::class, 'store'])->name('blog.store');
 Route::get('/blogs/{id}/edit', [ControllerBlog::class, 'edit'])->name('blog.edit');
 Route::delete('/blogs/{id}', [ControllerBlog::class, 'destroy'])->name('blog.destroy');
-// Route::get('/artikel', [ControllerBlog::class, 'index'])->name('blog.index'); // Menampilkan semua artikel
+Route::put('/blog/{id}', [ControllerBlog::class, 'update'])->name('blog.update');
 Route::get('/artikel/{slug}', [ControllerBlog::class, 'show'])->name('blog.show'); // Menampilkan detail artikel
 
 /* Gambar */

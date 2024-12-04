@@ -149,7 +149,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/" enctype="multipart/form-data" id="editBlogForm"> <!-- Ubah route dan id form -->
+                <form method="POST" enctype="multipart/form-data" id="editBlogForm"> <!-- Ubah route dan id form -->
                     @csrf
                     @method('PUT')
 
@@ -238,7 +238,7 @@
             }
 
             // Update action URL form dengan ID yang benar
-            var action = "/";
+            var action = "{{ route('blog.update', ':id') }}";
             action = action.replace(':id', id); // Mengganti :id dengan ID blog yang dipilih
             modal.find('#editBlogForm').attr('action', action); // Update URL form action
         });
