@@ -69,9 +69,14 @@
                 <span class="text-secondary text-xs font-weight-bold">{{ $blog->created_at->format('d/m/y') }}</span>
             </td>
             <td class="align-middle">
-                <a href="{{ route('blog.edit', $blog->id) }}" class="badge badge-sm bg-gradient-warning" data-toggle="tooltip" data-original-title="Edit blog">
+                <!-- Tombol Ubah -->
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editBlogModal" 
+                    data-id="{{ $blog->id }}" 
+                    data-title="{{ $blog->title }}"
+                    data-content="{{ $blog->content }}"
+                    data-image="{{ $blog->image }}">
                     Ubah
-                </a>
+                </button>
                 <form action="{{ route('blog.destroy', $blog->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
@@ -89,7 +94,8 @@
               </div>
             </div>
 
-            <div class="modal fade" id="tambahBlogModal" tabindex="-1" aria-labelledby="tambahBlogModalLabel" aria-hidden="true">
+<!-- Modal untuk Tambah Blog -->
+<div class="modal fade" id="tambahBlogModal" tabindex="-1" aria-labelledby="tambahBlogModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -134,6 +140,55 @@
     </div>
 </div>
 
+<!-- Modal untuk Edit Blog -->
+<div class="modal fade" id="editBlogModal" tabindex="-1" aria-labelledby="editBlogModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBlogModalLabel">Ubah Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('blog.update', ':id') }}" enctype="multipart/form-data" id="editBlogForm"> <!-- Ubah route dan id form -->
+                    @csrf
+                    @method('PUT')
+
+                    <!-- Input Title -->
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Judul Blog</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Judul Blog" value="{{ old('title') }}" required>
+                        @error('title') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Input Content -->
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Konten Blog</label>
+                        <textarea class="form-control" id="content" name="content" placeholder="Konten Blog" rows="4" required>{{ old('content') }}</textarea>
+                        @error('content') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Input Gambar -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Gambar Blog</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <small>Biarkan kosong jika tidak ingin mengubah gambar.</small>
+                        @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Penulis (Di-set otomatis sesuai yang login) -->
+                    <input type="hidden" name="author_id" value="{{ auth()->user()->id }}">
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
           </div>
         </div>
       </div>
@@ -153,6 +208,27 @@
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="assets/js/plugins/chartjs.min.js"></script>
+
+  <script>
+    // Ketika tombol "Ubah" diklik
+    $('#editBlogModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Tombol yang diklik
+        var id = button.data('id');
+        var title = button.data('title');
+        var content = button.data('content');
+        var image = button.data('image');
+
+        var modal = $(this);
+        modal.find('#title').val(title);  // Set nilai input title
+        modal.find('#content').val(content);  // Set nilai input content
+        modal.find('#image').val(''); // Biarkan input file kosong
+
+        // Mengubah form action untuk menggunakan ID yang dipilih
+        var action = '{{ route("blog.update", ":id") }}';
+        action = action.replace(':id', id);
+        modal.find('#editBlogForm').attr('action', action); // Update form action
+    });
+</script>
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
