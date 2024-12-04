@@ -31,9 +31,12 @@ Route::get('/', function () {
     
     // Ambil 9 gambar terbaru dari galeri
     $galeris = ModelGaleri::latest()->take(9)->get(); // Ambil 9 gambar galeri terbaru
+
+    // Ambil gambar sliders
+    $sliders = ModelSliders::latest()->take(3)->get(); // Ambil 3 gambar slider terbaru
     
-    // Kirim data blogs dan galeris ke view 'home'
-    return view('home', compact('blogs', 'galeris'));
+    // Kirim data blogs, galeris, dan sliders ke view 'home'
+    return view('home', compact('blogs', 'galeris', 'sliders'));
 });
 
 Route::get('/visi-misi', function () {
@@ -136,6 +139,16 @@ Route::get('storage/images/{filename}', function ($filename) {
 
 Route::get('storage/galeri/{filename}', function ($filename) {
     $path = storage_path('app/public/galeri/' . $filename);
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+
+    abort(404);
+});
+
+Route::get('storage/sliders/{filename}', function ($filename) {
+    $path = storage_path('app/public/sliders/' . $filename);
 
     if (file_exists($path)) {
         return response()->file($path);

@@ -7,22 +7,36 @@
 <!-- Navbar -->
 @include('layouts.navbar')
 
-<div class="banner-carousel banner-carousel-2 slick-initialized slick-slider"><button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control" style=""><i class="fas fa-chevron-left"></i></button>
-    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2732px;"><div class="banner-carousel-item slick-slide slick-current slick-active" style="background-image: url(&quot;https://tmisyariah.co.id/Template/images/slider-main/bg-pendaftaran.jpg&quot;); width: 1366px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" data-slick-index="0" aria-hidden="false" tabindex="0">
-        <div class="container">
-            <div class="box-slider-content">
-                <div class="box-slider-text">
-                    <h3 class="box-slide-sub-title">Selamat Datang</h3>
-                    <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
-                    <p>
-                        <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary" tabindex="0">Klik untuk informasi lebih lanjut</a>
-                    </p>
+<div class="banner-carousel banner-carousel-2 slick-initialized slick-slider">
+    <button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="slick-list draggable">
+        <div class="slick-track" style="opacity: 1; width: 2732px;">
+            @foreach ($sliders as $slider)
+            <div class="banner-carousel-item slick-slide" style="background-image: url('storage/sliders/' . $sliders->image); width: 1366px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" data-slick-index="{{ $loop->index }}" aria-hidden="false" tabindex="0">
+                <div class="container">
+                    <div class="box-slider-content">
+                        <div class="box-slider-text">
+                            <h3 class="box-slide-sub-title">Selamat Datang</h3>
+                            <p class="box-slide-description text-dark">
+                                Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br>
+                                <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong>
+                            </p>
+                            <p>
+                                <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary" tabindex="0">Klik untuk informasi lebih lanjut</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
-    </div><div class="banner-carousel-item slick-slide" style="background-image: url(&quot;https://tmisyariah.co.id/images/banner-image/1725253073.jpg&quot;); width: 1366px; position: relative; left: -1366px; top: 0px; z-index: 998; opacity: 0; transition: opacity 600ms;" data-slick-index="1" aria-hidden="true" tabindex="-1"></div></div></div>
-
-    <button type="button" class="carousel-control right slick-arrow" aria-label="carousel-control" style=""><i class="fas fa-chevron-right"></i></button></div>
+    </div>
+    <button type="button" class="carousel-control right slick-arrow" aria-label="carousel-control">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
 
 <section class="call-to-action no-padding">
     <div class="container">
