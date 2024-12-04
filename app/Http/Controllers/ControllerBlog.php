@@ -13,16 +13,18 @@ class ControllerBlog extends Controller
     // Menampilkan halaman untuk membuat blog
     public function index()
     {
-        // Ambil semua data blog dari tabel blogs
+    // Ambil semua data blog dari tabel blogs
     $blogs = ModelBlog::with('author')->get();  // Pastikan untuk eager load author (penulis)
 
-    $fileName = basename($blog->image);
+    $blogGambar = ModelBlog::find($id);
+
+    $fileName = basename($blogGambar->image);
 
     // Menambahkan pageTitle untuk halaman manajemen blog
     $pageTitle = 'Blog';
 
     // Kirim data blog ke tampilan
-    return view('admin.blog', compact('blogs', 'filename', 'pageTitle'));
+    return view('admin.blog', compact('blogs', 'blog', 'filename', 'pageTitle'));
 
     }
 
