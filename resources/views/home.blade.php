@@ -88,7 +88,7 @@
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         @foreach ($sliders as $index => $slider)
-            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); background-size: cover; background-position: center;">
+            <div class="carousel-item {{ $index == 1 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); background-size: cover; background-position: center;">
                 <div class="carousel-caption d-flex justify-content-center align-items-center w-100 h-100">
                     <div>
                         <h3 class="box-slide-sub-title">Selamat Datang</h3>
