@@ -64,7 +64,7 @@ class ControllerSliders extends Controller
 
         // Menyimpan setiap gambar sebagai record terpisah di database
         foreach ($imagePaths as $image) {
-            ModelSlider::create([
+            ModelSliders::create([
                 'image' => $image,  // Simpan setiap nama gambar sebagai record terpisah
             ]);
         }
