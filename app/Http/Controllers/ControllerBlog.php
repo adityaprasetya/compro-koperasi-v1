@@ -6,6 +6,7 @@ use App\Models\ModelBlog;
 use App\Models\ModelUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ControllerBlog extends Controller
@@ -69,39 +70,43 @@ class ControllerBlog extends Controller
             'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi gambar
         ]);
-    
+
         // Jika validasi gagal, kembalikan dengan error
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-    
+
         // Menangani gambar jika ada
         if ($request->hasFile('image')) {
-            // Menyimpan gambar di folder 'public/images' dan mendapatkan path gambar
-            $imagePath = $request->file('image')->store('images', 'public'); 
+            // Ambil file gambar
+            $image = $request->file('image');
+
+            // Mendapatkan nama file tanpa direktori (gunakan hashName() untuk memastikan nama file unik)
+            $imageName = $image->getClientOriginalName(); // Menyimpan nama asli gambar
+            $imagePath = $image->storeAs('images', $imageName, 'public'); // Simpan dengan nama file asli di folder 'images'
         } else {
             $imagePath = null; // Jika tidak ada gambar, set null
         }
-    
+
         // Membuat slug berdasarkan title
         $slug = Str::slug($request->title); 
-    
+
         // Cek apakah slug sudah ada, jika ada tambahkan angka di belakang slug
         if (ModelBlog::where('slug', $slug)->exists()) {
             $slug = $slug . '-' . Str::random(4); // Tambahkan random string agar slug unik
         }
-    
+
         // Simpan blog baru ke database
         ModelBlog::create([
             'title' => $request->title,
             'content' => $request->content,
             'slug' => $slug, // Menyimpan slug
             'author_id' => auth()->user()->id, // Penulis diambil dari pengguna yang sedang login
-            'image' => $imagePath, // Menyimpan path gambar
+            'image' => $imageName, // Menyimpan hanya nama file gambar, bukan path
         ]);
-    
+
         // Redirect ke halaman daftar blog setelah berhasil
         return redirect()->route('blog')->with('success', 'Blog berhasil dibuat');
     }
