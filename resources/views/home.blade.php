@@ -90,7 +90,7 @@
         @foreach ($sliders as $index => $slider)
             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); background-size: cover; background-position: center;">
                 <div class="carousel-caption d-flex justify-content-center align-items-center w-100 h-100 text-center">
-                    <div>
+                    <div class="carousel-caption">
                         <h3 class="box-slide-sub-title">Selamat Datang</h3>
                         <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
                         <p>
