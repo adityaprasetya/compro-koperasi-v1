@@ -183,7 +183,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
                     <div class="latest-post">
                         <div class="latest-post-media">
                             <a href="{{ route('blog.show', $blog->slug) }}" class="latest-post-img">
-                                <img loading="lazy" class="img-fluid" src="{{ route('blog.image', basename($blog->image)) }}" width="80px" alt="img">
+                                <img loading="lazy" class="img-fluid" src="{{ url('storage/images/' . $blog->image) }}" width="80px" alt="img">
                             </a>
                         </div>
                         <div class="post-body">
