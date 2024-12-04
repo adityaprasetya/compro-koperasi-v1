@@ -149,7 +149,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('blog.update', ':id') }}" enctype="multipart/form-data" id="editBlogForm"> <!-- Ubah route dan id form -->
+                <form method="POST" action="/" enctype="multipart/form-data" id="editBlogForm"> <!-- Ubah route dan id form -->
                     @csrf
                     @method('PUT')
 
