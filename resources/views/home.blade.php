@@ -15,7 +15,8 @@
         <div class="slick-track">
             @foreach ($sliders as $slider)
             <div class="banner-carousel-item slick-slide" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}');">
-                <div class="container">
+            @endforeach
+            <div class="container">
                     <div class="box-slider-content">
                         <div class="box-slider-text">
                             <h3 class="box-slide-sub-title">Selamat Datang</h3>
@@ -27,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            
         </div>
     </div>
     <button type="button" class="carousel-control right slick-arrow" aria-label="carousel-control">
