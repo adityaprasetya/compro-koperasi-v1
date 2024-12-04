@@ -47,8 +47,7 @@
                 <div class="d-flex px-2 py-1">
                     <div>
                     @if ($blog->image)
-                        <?php $fileName = basename($blogGambar->image); ?>
-                        <img src="{{ route('blog.image', ['filename' => 'images/' . $fileName]) }}" alt="Gambar Blog" style="width: 100px; height: auto;">
+                        <img src="{{ route('blog.image', ['filename' => $blog->image]) }}" alt="Gambar Blog" style="width: 100px; height: auto;">
                     @else
                         <span class="text-secondary">Tidak ada gambar</span>
                     @endif
