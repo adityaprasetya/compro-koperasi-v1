@@ -107,6 +107,7 @@ Route::get('/artikel/{slug}', [ControllerBlog::class, 'show'])->name('blog.show'
 
 /* Galeri */
 Route::post('/galeri', [ControllerGaleri::class, 'store'])->name('galeri.store');
+Route::delete('/galeri/{id}', [ControllerGaleri::class, 'destroy'])->name('galeri.destroy');
 
 /* Gambar */
 Route::get('storage/images/{filename}', function ($filename) {
