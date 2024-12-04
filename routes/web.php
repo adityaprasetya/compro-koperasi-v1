@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\ModelBlog;
 use App\Models\ModelGaleri;
+use App\Models\ModelSliders;
 
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
