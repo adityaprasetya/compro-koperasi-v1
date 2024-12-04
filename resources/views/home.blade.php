@@ -141,7 +141,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
 
             <div class="col-12">
                 <div class="general-btn text-center">
-                    <a class="btn btn-primary" href="/galeri">Selengkapnya</a>
+                    <a class="btn btn-primary" href="/">Selengkapnya</a>
                 </div>
             </div>
 
