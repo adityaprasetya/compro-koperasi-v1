@@ -14,7 +14,8 @@
     <div class="slick-list draggable">
         <div class="slick-track" style="opacity: 1; width: 2732px;">
             @foreach ($sliders as $slider)
-            <div class="banner-carousel-item slick-slide" style="background-image: url('storage/sliders/' . $sliders->image); width: 1366px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" data-slick-index="{{ $loop->index }}" aria-hidden="false" tabindex="0">
+            <div class="banner-carousel-item slick-slide" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); width: 1366px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" data-slick-index="{{ $loop->index }}" aria-hidden="false" tabindex="0">
+                <div class="container">
                 <div class="container">
                     <div class="box-slider-content">
                         <div class="box-slider-text">
