@@ -45,13 +45,13 @@ class ControllerSliders extends Controller
             $image1->storeAs('sliders', $image1Name, 'public');
             
             // Cek apakah sudah ada gambar dengan id = 1
-            $slider1 = ModelSlider::find(1);
+            $slider1 = ModelSliders::find(1);
             if ($slider1) {
                 // Update gambar pada id = 1
                 $slider1->update(['image' => $image1Name]);
             } else {
                 // Jika tidak ada, buat record baru
-                ModelSlider::create(['image' => $image1Name]);
+                ModelSliders::create(['image' => $image1Name]);
             }
         }
 
@@ -62,13 +62,13 @@ class ControllerSliders extends Controller
             $image2->storeAs('sliders', $image2Name, 'public');
             
             // Cek apakah sudah ada gambar dengan id = 2
-            $slider2 = ModelSlider::find(2);
+            $slider2 = ModelSliders::find(2);
             if ($slider2) {
                 // Update gambar pada id = 2
                 $slider2->update(['image' => $image2Name]);
             } else {
                 // Jika tidak ada, buat record baru
-                ModelSlider::create(['image' => $image2Name]);
+                ModelSliders::create(['image' => $image2Name]);
             }
         }
 
@@ -79,13 +79,13 @@ class ControllerSliders extends Controller
             $image3->storeAs('sliders', $image3Name, 'public');
             
             // Cek apakah sudah ada gambar dengan id = 3
-            $slider3 = ModelSlider::find(3);
+            $slider3 = ModelSliders::find(3);
             if ($slider3) {
                 // Update gambar pada id = 3
                 $slider3->update(['image' => $image3Name]);
             } else {
                 // Jika tidak ada, buat record baru
-                ModelSlider::create(['image' => $image3Name]);
+                ModelSliders::create(['image' => $image3Name]);
             }
         }
 
