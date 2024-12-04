@@ -67,19 +67,12 @@
           </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link dropdown-toggle {{ Request::is('sliders') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                    <i class="ni ni-settings-gear-65 text-dark text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Personalisasi</span>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                    <a class="dropdown-item {{ Request::is('sliders') ? 'active' : '' }}" href="{{ url('/sliders') }}">
-                        <i class="ni ni-album-2 text-dark text-sm opacity-10"></i> Sliders
-                    </a>
-                </li>
-            </ul>
+          <a class="nav-link {{ Request::is('sliders') ? 'active' : '' }}" href="{{ url('/sliders') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-album-2 text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Sliders</span>
+          </a>
         </li>
         <li class="nav-item">
             <form action="{{ route('logout') }}" method="POST" id="logout-form">
