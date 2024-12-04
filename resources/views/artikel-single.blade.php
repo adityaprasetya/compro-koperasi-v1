@@ -46,17 +46,17 @@
                     <div class="widget recent-posts">
                         <h3 class="widget-title">Recent Posts</h3>
                         <ul class="list-unstyled">
-                            @foreach($blogs as $recentBlog)
+                            @foreach($blogs as $blog)
                                 <li class="d-flex align-items-center">
                                     <div class="posts-thumb">
                                         <!-- Thumbnail artikel -->
-                                        <a href="{{ route('blog.show', $recentBlog->slug) }}">
+                                        <a href="{{ route('blog.show', $blog->slug) }}">
                                             <img loading="lazy" alt="img" src="{{ url('storage/images/' . $blog->image) }}" style="height: 50px; width: 80px;">
                                         </a>
                                     </div>
                                     <div class="post-info">
                                         <h4 class="entry-title">
-                                            <a href="{{ route('blog.show', $recentBlog->slug) }}">{{ $recentBlog->title }}</a>
+                                            <a href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a>
                                         </h4>
                                     </div>
                                 </li>
