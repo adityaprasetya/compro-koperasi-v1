@@ -39,22 +39,25 @@ class ControllerBlog extends Controller
     // Fungsi untuk mengambil gambar dari folder storage
     public function getImage($filename)
     {
-        // Tentukan path file di storage
+        // Tentukan direktori tempat gambar disimpan
         $path = storage_path('app/public/' . $filename);
 
-        // Cek apakah file ada di dalam storage
-        if (!file_exists($path)) {
-            abort(404); // Jika file tidak ada, kembalikan 404
+        // Cek apakah file ada
+        if (file_exists($path)) {
+            // Ambil ekstensi file
+            $extension = pathinfo($path, PATHINFO_EXTENSION);
+
+            // Tentukan tipe MIME untuk gambar
+            $mimeType = mime_content_type($path);
+
+            // Kembalikan gambar dengan tipe MIME yang sesuai
+            return response()->file($path, [
+                'Content-Type' => $mimeType
+            ]);
         }
 
-        // Mendapatkan mime type file
-        $mimeType = mime_content_type($path);
-
-        // Mengembalikan file sebagai response
-        return response()->file($path, [
-            'Content-Type' => $mimeType,
-            'Content-Disposition' => 'inline; filename="' . basename($path) . '"',
-        ]);
+        // Jika file tidak ada, kembalikan respons error 404
+        return abort(404);
     }
 
     // Menangani form untuk membuat dan menyimpan blog
