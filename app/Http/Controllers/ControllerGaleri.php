@@ -54,4 +54,22 @@ class ControllerGaleri extends Controller
         return redirect()->route('galeri')->with('success', 'Gambar berhasil ditambahkan');
     }
 
+    public function destroy($id)
+    {
+        // Cari gambar berdasarkan ID
+        $galeri = ModelGaleri::find($id);
+
+        if ($galeri) {
+            // Hapus file gambar dari storage
+            Storage::disk('public')->delete($galeri->image);
+
+            // Hapus data galeri dari database
+            $galeri->delete();
+
+            return redirect()->route('galeri')->with('success', 'Gambar berhasil dihapus.');
+        }
+
+        return redirect()->route('galeri')->with('error', 'Gambar tidak ditemukan.');
+    }
+
 }
