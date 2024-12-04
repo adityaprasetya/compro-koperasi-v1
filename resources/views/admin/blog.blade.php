@@ -70,7 +70,7 @@
             </td>
             <td class="align-middle">
                 <!-- Tombol Ubah -->
-                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editBlogModal" 
+                <button class="badge badge-sm bg-gradient-warning" data-bs-toggle="modal" data-bs-target="#editBlogModal" 
                     data-id="{{ $blog->id }}" 
                     data-title="{{ $blog->title }}"
                     data-content="{{ $blog->content }}"
