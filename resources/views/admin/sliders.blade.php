@@ -22,7 +22,7 @@
                     <div class="mb-4">
                         <!-- Slide 1 -->
                         <label for="image1" class="form-label">Slide 1</label>
-                        <input type="file" name="image1" class="form-control" id="image1" accept="image/*" required>
+                        <input type="file" name="image1" class="form-control" id="image1" accept="image/*">
                         @error('image1')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -31,7 +31,7 @@
                     <div class="mb-4">
                         <!-- Slide 2 -->
                         <label for="image2" class="form-label">Slide 2</label>
-                        <input type="file" name="image2" class="form-control" id="image2" accept="image/*" required>
+                        <input type="file" name="image2" class="form-control" id="image2" accept="image/*">
                         @error('image2')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -40,7 +40,7 @@
                     <div class="mb-4">
                         <!-- Slide 3 -->
                         <label for="image3" class="form-label">Slide 3</label>
-                        <input type="file" name="image3" class="form-control" id="image3" accept="image/*" required>
+                        <input type="file" name="image3" class="form-control" id="image3" accept="image/*">
                         @error('image3')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
