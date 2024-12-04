@@ -88,31 +88,25 @@
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         @foreach ($sliders as $index => $slider)
-            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" 
-                 style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); 
-                        background-size: cover; 
-                        background-position: center;">
-                <div class="carousel-caption d-flex justify-content-center align-items-center w-100 h-100 text-center" style="background: rgba(0, 0, 0, 0.5);">
-                    <div>
-                        <h3 class="box-slide-sub-title text-white">Selamat Datang</h3>
-                        <p class="box-slide-description text-white">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
-                        <p>
-                            <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary">Klik untuk informasi lebih lanjut</a>
-                        </p>
-                    </div>
+            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); background-size: cover; background-position: center;">
+                <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
+                    <h3 class="box-slide-sub-title">Selamat Datang</h3>
+                    <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
+                    <p>
+                        <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary">Klik untuk informasi lebih lanjut</a>
+                    </p>
                 </div>
             </div>
         @endforeach
     </div>
-
     <!-- Controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="visually-hidden"></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="visually-hidden"></span>
     </button>
 </div>
 
