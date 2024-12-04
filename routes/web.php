@@ -73,6 +73,10 @@ Route::get('/blog', [ControllerBlog::class, 'index'])
 ->name('blog')
 ->middleware('auth');
 
+Route::get('/galeri', [ControllerGaleri::class, 'index'])
+->name('galeri')
+->middleware('auth');
+
 Route::get('/akun', function () {
     return view('admin.akun');
 })->middleware('auth');
@@ -99,6 +103,9 @@ Route::get('/blogs/{id}/edit', [ControllerBlog::class, 'edit'])->name('blog.edit
 Route::delete('/blogs/{id}', [ControllerBlog::class, 'destroy'])->name('blog.destroy');
 Route::put('/blog/{id}', [ControllerBlog::class, 'update'])->name('blog.update');
 Route::get('/artikel/{slug}', [ControllerBlog::class, 'show'])->name('blog.show'); // Menampilkan detail artikel
+
+/* Galeri */
+Route::post('/galeri', [ControllerGaleri::class, 'store'])->name('galeri.store');
 
 /* Gambar */
 Route::get('storage/images/{filename}', function ($filename) {
