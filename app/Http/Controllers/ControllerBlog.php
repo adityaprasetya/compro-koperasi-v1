@@ -16,11 +16,13 @@ class ControllerBlog extends Controller
         // Ambil semua data blog dari tabel blogs
     $blogs = ModelBlog::with('author')->get();  // Pastikan untuk eager load author (penulis)
 
+    $fileName = basename($blog->image);
+
     // Menambahkan pageTitle untuk halaman manajemen blog
     $pageTitle = 'Blog';
 
     // Kirim data blog ke tampilan
-    return view('admin.blog', compact('blogs', 'pageTitle'));
+    return view('admin.blog', compact('blogs', 'filename', 'pageTitle'));
 
     }
 
@@ -39,15 +41,12 @@ class ControllerBlog extends Controller
     // Fungsi untuk mengambil gambar dari folder storage
     public function getImage($filename)
     {
-        // Tentukan direktori tempat gambar disimpan
+        // Tentukan path gambar tanpa direktori di storage
         $path = storage_path('app/public/' . $filename);
 
         // Cek apakah file ada
         if (file_exists($path)) {
             // Ambil ekstensi file
-            $extension = pathinfo($path, PATHINFO_EXTENSION);
-
-            // Tentukan tipe MIME untuk gambar
             $mimeType = mime_content_type($path);
 
             // Kembalikan gambar dengan tipe MIME yang sesuai
@@ -56,7 +55,7 @@ class ControllerBlog extends Controller
             ]);
         }
 
-        // Jika file tidak ada, kembalikan respons error 404
+        // Jika file tidak ditemukan
         return abort(404);
     }
 
