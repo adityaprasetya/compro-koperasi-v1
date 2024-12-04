@@ -121,7 +121,7 @@ Route::post('/galeri', [ControllerGaleri::class, 'store'])->name('galeri.store')
 Route::delete('/galeri/{id}', [ControllerGaleri::class, 'destroy'])->name('galeri.destroy');
 
 /* Sliders */
-Route::post('/galeri', [ControllerSliders::class, 'store'])->name('sliders.store');
+Route::post('/sliders', [ControllerSliders::class, 'store'])->name('sliders.store');
 
 /* Gambar */
 Route::get('storage/images/{filename}', function ($filename) {
