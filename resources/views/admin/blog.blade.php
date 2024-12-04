@@ -45,13 +45,13 @@
             </td>
             <td>
                 <div class="d-flex px-2 py-1">
-                    <div>
+                <div>
                     @if ($blog->image)
                         <img src="{{ url('storage/images/' . $blog->image) }}" alt="Gambar Blog" style="width: 100px; height: auto;">
                     @else
-                        <span class="text-secondary">Tidak ada gambar</span>
+                        <img src="https://via.placeholder.com/100x100?text=No+Image" alt="Placeholder Image" style="width: 100px; height: auto;">
                     @endif
-                    </div>
+                </div>
                     <div class="d-flex flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">{{ $blog->title }}</h6>
                         <p class="text-xs text-secondary mb-0">{{ substr($blog->content, 0, 100) }}...</p> <!-- Menampilkan potongan konten -->
