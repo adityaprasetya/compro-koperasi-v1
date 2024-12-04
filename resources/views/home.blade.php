@@ -30,6 +30,50 @@
     padding: 10px 20px;
 }
 
+/* Styling untuk tombol kontrol sebelumnya dan berikutnya */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px; /* Ukuran tombol */
+    height: 40px; /* Ukuran tombol */
+    border-radius: 50%; /* Membuat tombol menjadi bulat */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+    border: none; /* Menghapus border default */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1; /* Memastikan tombol tidak transparan */
+}
+
+/* Ukuran dan penataan ikon */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: white; /* Warna ikon tombol */
+    width: 20px; /* Ukuran ikon */
+    height: 20px; /* Ukuran ikon */
+    border-radius: 50%; /* Membuat ikon menjadi bulat */
+}
+
+/* Efek hover untuk kontrol */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Menggelapkan latar belakang saat hover */
+}
+
+/* Membuat tombol kontrol lebih kecil pada layar mobile */
+@media (max-width: 576px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 35px; /* Lebih kecil pada layar mobile */
+        height: 35px; /* Lebih kecil pada layar mobile */
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 15px; /* Ukuran ikon lebih kecil di layar mobile */
+        height: 15px; /* Ukuran ikon lebih kecil di layar mobile */
+    }
+}
+
 </style>
 
 <body>
@@ -55,11 +99,11 @@
     <!-- Controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="visually-hidden"></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="visually-hidden"></span>
     </button>
 </div>
 
