@@ -39,15 +39,15 @@ class ControllerGaleri extends Controller
             $image = $request->file('image');
 
             // Mendapatkan nama file gambar (gunakan hashName() agar nama file unik)
-            $imageName = $image->hashName(); // Menggunakan hashName untuk memastikan nama file unik
+            $imageName = $image->getClientOriginalName(); // Menyimpan nama asli gambar
 
-            // Menyimpan gambar ke folder 'galeri' dalam public storage dan mendapatkan path-nya
-            $imagePath = $image->storeAs('galeri', $imageName, 'public');  // Simpan di 'public/galeri'
+            // Menyimpan gambar di dalam folder 'galeri' dalam public storage
+            $image->storeAs('galeri', $imageName, 'public');  // Simpan gambar dengan nama asli di 'public/galeri'
         }
 
-        // Menyimpan informasi gambar ke tabel galeri
+        // Menyimpan informasi gambar ke tabel galeri (hanya nama file)
         ModelGaleri::create([
-            'image' => $imagePath,  // Menyimpan path gambar yang disimpan di storage
+            'image' => $imageName,  // Simpan hanya nama file gambar, bukan path
         ]);
 
         // Redirect ke halaman galeri setelah berhasil
