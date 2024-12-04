@@ -4,16 +4,15 @@
 <style>
 
 .carousel-item {
-    height: 500px;
-    display: flex;
-    justify-content: flex-start; /* Menempatkan konten ke kiri */
-    align-items: center; /* Memastikan konten rata vertikal */
-    padding-left: 20px; /* Memberikan jarak dari sisi kiri */
+    height: 500px; /* Sesuaikan tinggi carousel sesuai kebutuhan */
 }
 
-.carousel-caption {
-    position: relative;
-    text-align: left; /* Menyesuaikan teks agar tidak di tengah */
+.carousel-item .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
     color: white;
 }
 
@@ -31,55 +30,50 @@
     padding: 10px 20px;
 }
 
+/* Styling untuk tombol kontrol sebelumnya dan berikutnya */
 .carousel-control-prev,
 .carousel-control-next {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
+    width: 40px; /* Ukuran tombol */
+    height: 40px; /* Ukuran tombol */
+    border-radius: 50%; /* Membuat tombol menjadi bulat */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+    border: none; /* Menghapus border default */
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    opacity: 1; /* Memastikan tombol tidak transparan */
+    position: absolute; /* Posisi absolute */
+    top: 50%; /* Menempatkan tombol di tengah vertikal */
+    transform: translateY(-50%); /* Mengoreksi posisi agar benar-benar di tengah */
 }
 
+/* Ukuran dan penataan ikon */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: white;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    background-color: white; /* Warna ikon tombol */
+    width: 20px; /* Ukuran ikon */
+    height: 20px; /* Ukuran ikon */
+    border-radius: 50%; /* Membuat ikon menjadi bulat */
 }
 
+/* Menambahkan efek hover untuk kontrol */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Menggelapkan latar belakang saat hover */
 }
 
+/* Membuat tombol kontrol lebih kecil pada layar mobile */
 @media (max-width: 576px) {
     .carousel-control-prev,
     .carousel-control-next {
-        width: 35px;
-        height: 35px;
+        width: 35px; /* Lebih kecil pada layar mobile */
+        height: 35px; /* Lebih kecil pada layar mobile */
     }
-
+    
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        width: 15px;
-        height: 15px;
-    }
-
-    .carousel-item {
-        height: auto; /* Mengatur tinggi agar responsif */
-        padding-left: 10px; /* Mengurangi padding pada perangkat mobile */
-    }
-
-    .carousel-caption {
-        text-align: center; /* Menyesuaikan caption menjadi center di layar kecil */
+        width: 15px; /* Ukuran ikon lebih kecil di layar mobile */
+        height: 15px; /* Ukuran ikon lebih kecil di layar mobile */
     }
 }
 
