@@ -178,28 +178,30 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         </div>
 
         <div class="row">
-            @foreach ($blogs as $blog)
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="latest-post">
-                        <div class="latest-post-media">
-                            <a href="{{ route('blog.show', $blog->slug) }}" class="latest-post-img">
-                                <img loading="lazy" class="img-fluid" src="{{ url('storage/images/' . $blog->image) }}" width="80px" alt="img">
-                            </a>
-                        </div>
-                        <div class="post-body">
-                            <h4 class="post-title">
-                                <a href="{{ route('blog.show', $blog->slug) }}" class="d-inline-block">{{ $blog->title }}</a>
-                            </h4>
-                            <div class="latest-post-meta">
-                                <span class="post-item-date">
-                                    <i class="fa fa-clock-o"></i> {{ $blog->created_at->format('l, d F Y') }}
-                                </span>
-                            </div>
-                        </div>
+    @foreach ($blogs as $blog)
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="latest-post">
+                <div class="latest-post-media">
+                    <a href="{{ route('blog.show', $blog->slug) }}" class="latest-post-img">
+                        <img loading="lazy" class="img-fluid" 
+                             src="{{ $blog->image ? url('storage/images/' . $blog->image) : 'https://via.placeholder.com/80x80?text=No+Image' }}" 
+                             width="80px" alt="img">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <h4 class="post-title">
+                        <a href="{{ route('blog.show', $blog->slug) }}" class="d-inline-block">{{ $blog->title }}</a>
+                    </h4>
+                    <div class="latest-post-meta">
+                        <span class="post-item-date">
+                            <i class="fa fa-clock-o"></i> {{ $blog->created_at->format('l, d F Y') }}
+                        </span>
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
+    @endforeach
+</div>
 
         <div class="general-btn text-center mt-4">
             <a class="btn btn-primary" href="/artikel">See All Posts</a>

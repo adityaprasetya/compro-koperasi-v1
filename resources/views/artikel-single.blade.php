@@ -12,10 +12,12 @@
 
             <!-- Kolom Konten Artikel -->
             <div class="col-lg-8 mb-5 mb-lg-0">
-                <div class="post-content post-single">
-                    <!-- Menampilkan gambar artikel -->
-                    <div class="post-media post-image">
-                        <img loading="lazy" src="{{ url('storage/images/' . $blog->image) }}" class="img-fluid mt-3" alt="post-image">
+                    <div class="post-content post-single">
+                        <!-- Menampilkan gambar artikel -->
+                        <div class="post-media post-image">
+                        <img loading="lazy" 
+                        src="{{ $blog->image ? url('storage/images/' . $blog->image) : 'https://via.placeholder.com/800x400?text=No+Image' }}" 
+                        class="img-fluid mt-3" alt="post-image">
                     </div>
 
                     <div class="post-body">
@@ -38,7 +40,8 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- Content Col end -->
+            </div>
+            <!-- Content Col end -->
 
             <!-- Kolom Sidebar -->
             <div class="col-lg-4 mt-3">
@@ -51,7 +54,9 @@
                                     <div class="posts-thumb">
                                         <!-- Thumbnail artikel -->
                                         <a href="{{ route('blog.show', $blog->slug) }}">
-                                            <img loading="lazy" alt="img" src="{{ url('storage/images/' . $blog->image) }}" style="height: 50px; width: 80px;">
+                                        <img loading="lazy" alt="img" 
+                                        src="{{ $blog->image ? url('storage/images/' . $blog->image) : 'https://via.placeholder.com/80x50?text=No+Image' }}" 
+                                        style="height: 50px; width: 80px;">
                                         </a>
                                     </div>
                                     <div class="post-info">
@@ -64,7 +69,8 @@
                         </ul>
                     </div><!-- Recent Posts Widget -->
                 </div><!-- Sidebar end -->
-            </div><!-- Sidebar Col end -->
+            </div>
+            <!-- Sidebar Col end -->
 
         </div><!-- Main row end -->
 </div><!-- Container end -->
