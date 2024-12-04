@@ -318,7 +318,7 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         
         // Membuat instance carousel menggunakan Bootstrap API
         var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 1000, // Interval diatur setiap 1 detik (1000ms)
+            interval: 3000, // Interval diatur setiap 1 detik (1000ms)
             ride: 'carousel', // Untuk autoplay
             pause: 'hover'    // Hentikan autoplay jika cursor hover di atas carousel
         });
