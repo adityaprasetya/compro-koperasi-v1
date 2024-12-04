@@ -45,7 +45,7 @@
                 <div class="d-flex px-2 py-1">
                     <div>
                         @if ($galeri->image)
-                            <img src="{{ url('storage/' . $galeri->image) }}" alt="Gambar Galeri" style="width: 100px; height: auto;">
+                            <img src="{{ url('storage/galeri/' . $galeri->image) }}" alt="Gambar Galeri" style="width: 100px; height: auto;">
                         @else
                             <img src="https://via.placeholder.com/100x100?text=No+Image" alt="Placeholder Image" style="width: 100px; height: auto;">
                         @endif

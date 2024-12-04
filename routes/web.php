@@ -119,3 +119,13 @@ Route::get('storage/images/{filename}', function ($filename) {
 
     abort(404);
 });
+
+Route::get('storage/galeri/{filename}', function ($filename) {
+    $path = storage_path('app/public/galeri/' . $filename);
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+
+    abort(404);
+});
