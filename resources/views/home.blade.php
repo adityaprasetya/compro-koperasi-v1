@@ -128,44 +128,13 @@ persiapan qurban, tabungan haji/umrah, dan tabungan berhadiah.</p>
         <div class="row">
             <div class="col-12">
 
-            <!-- Galeri 3x3 Gambar -->
-            <div class="row">
-                    <!-- Gambar 1 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 1" class="img-fluid">
-                    </div>
-                    <!-- Gambar 2 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 2" class="img-fluid">
-                    </div>
-                    <!-- Gambar 3 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 3" class="img-fluid">
-                    </div>
-                    <!-- Gambar 4 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 4" class="img-fluid">
-                    </div>
-                    <!-- Gambar 5 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 5" class="img-fluid">
-                    </div>
-                    <!-- Gambar 6 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 6" class="img-fluid">
-                    </div>
-                    <!-- Gambar 7 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 7" class="img-fluid">
-                    </div>
-                    <!-- Gambar 8 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 8" class="img-fluid">
-                    </div>
-                    <!-- Gambar 9 -->
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <img src="https://via.placeholder.com/300" alt="Gallery Image 9" class="img-fluid">
-                    </div>
+                <!-- Galeri 3x3 Gambar -->
+                <div class="row">
+                    @foreach ($galeris as $galeri)
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <img src="{{ url('storage/galeri/' . $galeri->image) }}" alt="Gallery Image {{ $loop->iteration }}" class="img-fluid">
+                        </div>
+                    @endforeach
                 </div><!-- Row end -->
 
             </div>

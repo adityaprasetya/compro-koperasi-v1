@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\ModelBlog;
+use App\Models\ModelGaleri;
 
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
@@ -24,9 +25,14 @@ use App\Http\Controllers\ControllerDashboard;
 
 /* View */
 Route::get('/', function () {
-    // Ambil semua blog dan urutkan berdasarkan tanggal terbaru
-    $blogs = ModelBlog::latest()->take(3)->get(); // Ambil 6 artikel terbaru
-    return view('home', compact('blogs'));
+    // Ambil 3 blog terbaru
+    $blogs = ModelBlog::latest()->take(3)->get(); 
+    
+    // Ambil 9 gambar terbaru dari galeri
+    $galeris = Galeri::latest()->take(9)->get(); // Ambil 9 gambar galeri terbaru
+    
+    // Kirim data blogs dan galeris ke view 'home'
+    return view('home', compact('blogs', 'galeris'));
 });
 
 Route::get('/visi-misi', function () {
