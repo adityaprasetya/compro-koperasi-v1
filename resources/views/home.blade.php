@@ -7,7 +7,7 @@
 <!-- Navbar -->
 @include('layouts.navbar')
 
-<div class="banner-carousel">
+<div class="banner-carousel banner-carousel-2 slick-initialized slick-slider">
     <button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control">
         <i class="fas fa-chevron-left"></i>
     </button>
