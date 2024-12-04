@@ -103,9 +103,6 @@
     </div>
 </div>
 
-<!-- Modal untuk Edit Blog -->
-
-
           </div>
         </div>
       </div>

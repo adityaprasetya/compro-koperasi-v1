@@ -11,7 +11,7 @@ class ControllerGaleri extends Controller
     {
         $galeris = ModelGaleri::all();  // Ambil semua data galeri
 
-        $pageTitle = 'Blog';
+        $pageTitle = 'Galeri';
 
         return view('admin.galeri', compact('galeris', 'pageTitle'));
     }
