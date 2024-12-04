@@ -29,7 +29,7 @@ Route::get('/', function () {
     $blogs = ModelBlog::latest()->take(3)->get(); 
     
     // Ambil 9 gambar terbaru dari galeri
-    $galeris = Galeri::latest()->take(9)->get(); // Ambil 9 gambar galeri terbaru
+    $galeris = ModelGaleri::latest()->take(9)->get(); // Ambil 9 gambar galeri terbaru
     
     // Kirim data blogs dan galeris ke view 'home'
     return view('home', compact('blogs', 'galeris'));
