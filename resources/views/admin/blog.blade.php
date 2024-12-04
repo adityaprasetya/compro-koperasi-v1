@@ -224,7 +224,7 @@
         modal.find('#image').val(''); // Biarkan input file kosong
 
         // Mengubah form action untuk menggunakan ID yang dipilih
-        var action = '{{ route("blog.update", ":id") }}';
+        var action = '/';
         action = action.replace(':id', id);
         modal.find('#editBlogForm').attr('action', action); // Update form action
     });
