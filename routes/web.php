@@ -10,6 +10,7 @@ use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
 use App\Http\Controllers\ControllerBlog;
 use App\Http\Controllers\ControllerGaleri;
+use App\Http\Controllers\ControllerSliders;
 use App\Http\Controllers\ControllerDashboard;
 
 /*
@@ -84,6 +85,10 @@ Route::get('/galeri', [ControllerGaleri::class, 'index'])
 ->name('galeri')
 ->middleware('auth');
 
+Route::get('/sliders', [ControllerSliders::class, 'index'])
+->name('sliders')
+->middleware('auth');
+
 Route::get('/akun', function () {
     return view('admin.akun');
 })->middleware('auth');
@@ -114,6 +119,9 @@ Route::get('/artikel/{slug}', [ControllerBlog::class, 'show'])->name('blog.show'
 /* Galeri */
 Route::post('/galeri', [ControllerGaleri::class, 'store'])->name('galeri.store');
 Route::delete('/galeri/{id}', [ControllerGaleri::class, 'destroy'])->name('galeri.destroy');
+
+/* Sliders */
+Route::post('/galeri', [ControllerSliders::class, 'store'])->name('sliders.store');
 
 /* Gambar */
 Route::get('storage/images/{filename}', function ($filename) {
