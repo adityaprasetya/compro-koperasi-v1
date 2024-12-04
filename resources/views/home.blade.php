@@ -10,7 +10,9 @@
 <div class="banner-carousel banner-carousel-2 slick-initialized slick-slider"><button type="button" class="carousel-control left slick-arrow" aria-label="carousel-control" style=""><i class="fas fa-chevron-left"></i></button>
     <div class="slick-list draggable">
         <div class="slick-track" style="opacity: 1; width: 2732px;">
+            @foreach ($sliders as $slider)
             <div class="banner-carousel-item slick-slide slick-current slick-active" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); width: 1366px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" data-slick-index="0" aria-hidden="false" tabindex="0">
+            @endforeach   
                 <div class="container">
                     <div class="box-slider-content">
                         <div class="box-slider-text">
