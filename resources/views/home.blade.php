@@ -30,12 +30,6 @@
     padding: 10px 20px;
 }
 
-/* Memastikan bahwa kontrol carousel terlihat dengan jelas */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: black; /* Mengubah warna ikon kontrol */
-}
-
 </style>
 
 <body>
