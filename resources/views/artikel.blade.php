@@ -29,7 +29,7 @@
             <div class="post">
                 <div class="post-media post-image">
                     <!-- Menampilkan gambar artikel -->
-                    <img loading="lazy" src="{{ asset('storage/' . $blog->image) }}" class="img-fluid" alt="post-image">
+                    <img loading="lazy" src="{{ url('storage/images/' . $blog->image) }}" class="img-fluid" alt="post-image">
                 </div>
 
                 <div class="post-body">
@@ -71,7 +71,7 @@
                             <div class="posts-thumb">
                                 <!-- Thumbnail artikel -->
                                 <a href="{{ route('blog.show', $blog->slug) }}">
-                                    <img loading="lazy" alt="img" style="height: 50px; width: 80px;" src="{{ asset('storage/' . $blog->image) }}">
+                                    <img loading="lazy" alt="img" style="height: 50px; width: 80px;" src="{{ url('storage/images/' . $blog->image) }}">
                                 </a>
                             </div>
                             <div class="post-info">
