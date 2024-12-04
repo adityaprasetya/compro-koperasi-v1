@@ -48,7 +48,7 @@
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profil <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/visi-misi">Visi Misi</a></li>
-                                            <li><a href="/struktur-organisasi">Struktur Organisasi</a></li>
+                                            <li><a href="#">Struktur Organisasi</a></li>
                                             <li><a href="/dewan-direksi">Dewan Direksi</a></li>
                                             <li><a href="#">Karir</a></li>
                                             <!--<li><a href="/partnership">Our Partners</a></li>-->
