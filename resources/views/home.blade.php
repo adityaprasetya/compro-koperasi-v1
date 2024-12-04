@@ -42,6 +42,9 @@
     align-items: center;
     justify-content: center;
     opacity: 1; /* Memastikan tombol tidak transparan */
+    position: absolute; /* Posisi absolute */
+    top: 50%; /* Menempatkan tombol di tengah vertikal */
+    transform: translateY(-50%); /* Mengoreksi posisi agar benar-benar di tengah */
 }
 
 /* Ukuran dan penataan ikon */
@@ -53,7 +56,7 @@
     border-radius: 50%; /* Membuat ikon menjadi bulat */
 }
 
-/* Efek hover untuk kontrol */
+/* Menambahkan efek hover untuk kontrol */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
     background-color: rgba(0, 0, 0, 0.7); /* Menggelapkan latar belakang saat hover */
