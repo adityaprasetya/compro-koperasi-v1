@@ -91,11 +91,13 @@
             <div class="carousel-item {{ $index == 2 ? 'active' : '' }}" style="background-image: url('{{ asset('storage/sliders/' . $slider->image) }}'); background-size: cover; background-position: center;">
                 <div class="carousel-caption d-flex justify-content-center align-items-center w-100 h-100">
                     <div>
+                    @if ($index == 2)
                         <h3 class="box-slide-sub-title">Selamat Datang</h3>
                         <p class="box-slide-description text-dark">Simpanan untuk perorangan dengan persyaratan mudah dan ringan <br> <strong>Hanya di Koperasi Telaga Mandiri Indonesia</strong></p>
                         <p>
                             <a href="https://api.whatsapp.com/send?phone=628152121582" class="slider btn btn-primary">Klik untuk informasi lebih lanjut</a>
                         </p>
+                    @endif
                     </div>
                 </div>
             </div>
