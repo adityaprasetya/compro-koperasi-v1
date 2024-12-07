@@ -8,6 +8,7 @@ use App\Models\ModelGaleri;
 use App\Models\ModelSliders;
 use App\Models\ModelPembiayaan;
 use App\Models\ModelSimulasi;
+use App\Models\ModelPromosi;
 
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
@@ -17,6 +18,7 @@ use App\Http\Controllers\ControllerSliders;
 use App\Http\Controllers\ControllerDashboard;
 use App\Http\Controllers\ControllerPembiayaan;
 use App\Http\Controllers\ControllerSimulasi;
+use App\Http\Controllers\ControllerPromosi;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +78,14 @@ Route::get('/simulasi-tmi', function () {
     return view('pinjaman.simulasitmi', compact('simulasis'));
 });
 
+Route::get('/promosi-tmi', function () {
+    // Ambil gambar simulasi
+    $promosis = ModelPromosi::latest()->take(5)->get(); // Ambil 1 gambar simulasi terbaru
+    
+    // Kirim data simulasi, ke view 'home'
+    return view('promositmi', compact('promosis'));
+});
+
 Route::get('/kontak', function () {
     return view('kontak');
 });
@@ -115,6 +125,10 @@ Route::get('/pembiayaan', [ControllerPembiayaan::class, 'index'])
 
 Route::get('/simulasi', [ControllerSimulasi::class, 'index'])
 ->name('simulasi')
+->middleware('auth');
+
+Route::get('/promosi', [ControllerPromosi::class, 'index'])
+->name('promosi')
 ->middleware('auth');
 
 Route::get('/sliders', [ControllerSliders::class, 'index'])
@@ -157,6 +171,9 @@ Route::post('/pembiayaan', [ControllerPembiayaan::class, 'store'])->name('pembia
 
 /* Simulasi */
 Route::post('/simulasi', [ControllerSimulasi::class, 'store'])->name('simulasi.store');
+
+/* Promosi */
+Route::post('/promosi', [ControllerPromosi::class, 'store'])->name('promosi.store');
 
 /* Sliders */
 Route::post('/sliders', [ControllerSliders::class, 'store'])->name('sliders.store');
@@ -204,6 +221,16 @@ Route::get('storage/pembiayaan/{filename}', function ($filename) {
 
 Route::get('storage/simulasi/{filename}', function ($filename) {
     $path = storage_path('app/public/simulasi/' . $filename);
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+
+    abort(404);
+});
+
+Route::get('storage/promosi/{filename}', function ($filename) {
+    $path = storage_path('app/public/promosi/' . $filename);
 
     if (file_exists($path)) {
         return response()->file($path);

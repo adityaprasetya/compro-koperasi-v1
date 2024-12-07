@@ -69,7 +69,7 @@
                                         </ul>
                                     </li>
                                     
-                                    <li class="nav-item"><a class="nav-link" href="#">Promosi</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/promosi-tmi">Promosi</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/kontak">Kontak</a></li>
                                      
 
