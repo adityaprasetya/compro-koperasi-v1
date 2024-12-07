@@ -17,11 +17,12 @@
         <div class="row justify-content-center">
             <!-- Menampilkan gambar yang besar dan responsif -->
             @foreach ($simulasis as $simulasi)
-                <div class="col-12 col-md-10">
+                <div class="col-12 col-md-10 text-center"> <!-- Menambahkan kelas text-center untuk memusatkan gambar -->
                     <img src="{{ url('storage/simulasi/' . $simulasi->image) }}" class="img-fluid" alt="Simulasi TMI Image">
                 </div>
             @endforeach
         </div>
+        
     </div><!-- Container end -->
 </section><!-- Main container end -->
 
