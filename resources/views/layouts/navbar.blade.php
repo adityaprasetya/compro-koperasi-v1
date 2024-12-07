@@ -65,7 +65,7 @@
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pinjaman <i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/pembiayaan-tmi">Pembiayaan TMI </a></li>
-                                            <li><a href="#">Simulasi Pembiayaan</a></li>
+                                            <li><a href="/simulasi-tmi">Simulasi Pembiayaan</a></li>
                                         </ul>
                                     </li>
                                     
