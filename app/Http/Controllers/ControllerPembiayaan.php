@@ -45,10 +45,10 @@ class ControllerPembiayaan extends Controller
             $pembiayaan = ModelPembiayaan::find(1);
             if ($pembiayaan) {
                 // Update gambar pada id = 1
-                $pembiayaan->update(['image' => $image1Name]);
+                $pembiayaan->update(['image' => $pembiayaanName]);
             } else {
                 // Jika tidak ada, buat record baru
-                ModelPembiayaan::create(['image' => $image1Name]);
+                ModelPembiayaan::create(['image' => $pembiayaanName]);
             }
         }
 
