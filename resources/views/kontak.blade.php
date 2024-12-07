@@ -58,13 +58,12 @@ Indah, Kec. Klp. Dua, Kabupaten Tangerang, Banten 15810</h6>
             </div>
 
             <div class="col-lg-6 mt-5 mt-lg-0">
-
-                <iframe src="kontak_files/embed.html" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Google Maps Embed Link -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.052273220099!2d106.6092159!3d-6.2196405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ffd64bf732bf%3A0x74bc236f2281679b!2sTELAGA%20MANDIRI%20INDONESIA!5e0!3m2!1sen!2sid!4v1633925567199!5m2!1sen!2sid"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
             
-            
-
-          
         </div><!-- Content row end -->
     </div><!-- Container end -->
 </section><!-- Main container end -->
