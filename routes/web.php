@@ -103,6 +103,10 @@ Route::get('/galeri', [ControllerGaleri::class, 'index'])
 ->name('galeri')
 ->middleware('auth');
 
+Route::get('/pembiayaan', [ControllerPembiayaan::class, 'index'])
+->name('pembiayaan')
+->middleware('auth');
+
 Route::get('/sliders', [ControllerSliders::class, 'index'])
 ->name('sliders')
 ->middleware('auth');
