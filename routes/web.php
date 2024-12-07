@@ -7,6 +7,7 @@ use App\Models\ModelBlog;
 use App\Models\ModelGaleri;
 use App\Models\ModelSliders;
 use App\Models\ModelPembiayaan;
+use App\Models\ModelSimulasi;
 
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
@@ -15,6 +16,7 @@ use App\Http\Controllers\ControllerGaleri;
 use App\Http\Controllers\ControllerSliders;
 use App\Http\Controllers\ControllerDashboard;
 use App\Http\Controllers\ControllerPembiayaan;
+use App\Http\Controllers\ControllerSimulasi;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,15 +61,19 @@ Route::get('/keanggotaan-kspps-tmi', function () {
 });
 
 Route::get('/pembiayaan-tmi', function () {
-    return view('pinjaman.pembiayaantmi');
-});
-
-Route::get('/pembiayaan-tmi', function () {
     // Ambil gambar pembiayaan
     $pembiayaans = ModelPembiayaan::latest()->take(1)->get(); // Ambil 1 gambar pembiayaan terbaru
     
     // Kirim data pembiayaan, ke view 'home'
     return view('pinjaman.pembiayaantmi', compact('pembiayaans'));
+});
+
+Route::get('/simulasi-tmi', function () {
+    // Ambil gambar simulasi
+    $simulasis = ModelSimulasi::latest()->take(1)->get(); // Ambil 1 gambar simulasi terbaru
+    
+    // Kirim data simulasi, ke view 'home'
+    return view('pinjaman.simulasitmi', compact('simulasis'));
 });
 
 Route::get('/kontak', function () {
@@ -145,6 +151,9 @@ Route::delete('/galeri/{id}', [ControllerGaleri::class, 'destroy'])->name('galer
 /* Pembiayaan */
 Route::post('/pembiayaan', [ControllerPembiayaan::class, 'store'])->name('pembiayaan.store');
 
+/* Simulasi */
+Route::post('/simulasi', [ControllerSimulasi::class, 'store'])->name('simulasi.store');
+
 /* Sliders */
 Route::post('/sliders', [ControllerSliders::class, 'store'])->name('sliders.store');
 
@@ -181,6 +190,16 @@ Route::get('storage/sliders/{filename}', function ($filename) {
 
 Route::get('storage/pembiayaan/{filename}', function ($filename) {
     $path = storage_path('app/public/pembiayaan/' . $filename);
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+
+    abort(404);
+});
+
+Route::get('storage/simulasi/{filename}', function ($filename) {
+    $path = storage_path('app/public/simulasi/' . $filename);
 
     if (file_exists($path)) {
         return response()->file($path);

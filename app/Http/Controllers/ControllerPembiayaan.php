@@ -23,7 +23,7 @@ class ControllerPembiayaan extends Controller
     {
         // Validasi inputan gambar
         $validator = Validator::make($request->all(), [
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pembiayaan' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Jika validasi gagal
