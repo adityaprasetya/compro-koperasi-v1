@@ -16,7 +16,7 @@
         
         <div class="row justify-content-center">
             <!-- Menampilkan gambar yang besar dan responsif -->
-            @foreach ($simulasiss as $simulasi)
+            @foreach ($simulasis as $simulasi)
                 <div class="col-12 col-md-10">
                     <img src="{{ url('storage/simulasi/' . $simulasi->image) }}" class="img-fluid" alt="Simulasi TMI Image">
                 </div>
