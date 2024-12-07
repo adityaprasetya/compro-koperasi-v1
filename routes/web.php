@@ -52,6 +52,10 @@ Route::get('/dewan-direksi', function () {
     return view('profil.dewandireksi');
 });
 
+Route::get('/keanggotaan-kspps-tmi', function () {
+    return view('keanggotaan');
+});
+
 Route::get('/pembiayaan-tmi', function () {
     return view('pinjaman.pembiayaantmi');
 });
