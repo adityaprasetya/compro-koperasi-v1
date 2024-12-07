@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\ModelBlog;
 use App\Models\ModelGaleri;
 use App\Models\ModelSliders;
+use App\Models\ModelPembiayaan;
 
 use App\Http\Controllers\ControllerUser;
 use App\Http\Controllers\ControllerAuth;
@@ -13,6 +14,7 @@ use App\Http\Controllers\ControllerBlog;
 use App\Http\Controllers\ControllerGaleri;
 use App\Http\Controllers\ControllerSliders;
 use App\Http\Controllers\ControllerDashboard;
+use App\Http\Controllers\ControllerPembiayaan;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,6 +130,9 @@ Route::get('/artikel/{slug}', [ControllerBlog::class, 'show'])->name('blog.show'
 Route::post('/galeri', [ControllerGaleri::class, 'store'])->name('galeri.store');
 Route::delete('/galeri/{id}', [ControllerGaleri::class, 'destroy'])->name('galeri.destroy');
 
+/* Pembiayaan */
+Route::post('/pembiayaan', [ControllerPembiayaan::class, 'store'])->name('pembiayaan.store');
+
 /* Sliders */
 Route::post('/sliders', [ControllerSliders::class, 'store'])->name('sliders.store');
 
@@ -154,6 +159,16 @@ Route::get('storage/galeri/{filename}', function ($filename) {
 
 Route::get('storage/sliders/{filename}', function ($filename) {
     $path = storage_path('app/public/sliders/' . $filename);
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+
+    abort(404);
+});
+
+Route::get('storage/pembiayaan/{filename}', function ($filename) {
+    $path = storage_path('app/public/pembiayaan/' . $filename);
 
     if (file_exists($path)) {
         return response()->file($path);
