@@ -9,9 +9,7 @@
 
 <section id="main-container" class="main-container">
   <div class="container d-flex justify-content-center">
-    <div class="center">
-        <h3 class="column-title">Keanggotaan KSPPS TMI</h3>
-    </div>
+    <h3 class="column-title">Keanggotaan KSPPS TMI</h3>
     <!-- Card dengan variabel khusus -->
     <div class="card" id="specialCard" style="width: 18rem;">
       <div class="image">
