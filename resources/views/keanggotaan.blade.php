@@ -109,7 +109,7 @@
                       
                       <div class="image">
                         
-                         <img src="keanggotaan_files/images-form.png" class="img-fluid">
+                         <img src="assets/images-form.png" class="img-fluid">
                         <!--<img href = "#" src =https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg>-->
                       </div>
                       <div class="content">
