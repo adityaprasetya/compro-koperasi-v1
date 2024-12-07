@@ -62,6 +62,14 @@ Route::get('/pembiayaan-tmi', function () {
     return view('pinjaman.pembiayaantmi');
 });
 
+Route::get('/pembiayaan-tmi', function () {
+    // Ambil gambar pembiayaan
+    $pembiayaan = ModelPembiayaan::latest()->take(1)->get(); // Ambil 1 gambar pembiayaan terbaru
+    
+    // Kirim data pembiayaan, ke view 'home'
+    return view('pinjaman.pembiayaantmi', compact('pembiayaan'));
+});
+
 Route::get('/kontak', function () {
     return view('kontak');
 });
