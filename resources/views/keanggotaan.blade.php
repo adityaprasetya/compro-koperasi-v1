@@ -8,8 +8,10 @@
 @include('layouts.navbar')
 
 <section id="main-container" class="main-container">
-  <div class="container d-flex justify-content-center">
-    <h3 class="column-title">Keanggotaan KSPPS TMI</h3>
+  <div class="container d-flex flex-column align-items-center justify-content-center">
+    <!-- Judul di atas card -->
+    <h3 class="column-title text-center mb-4">Keanggotaan KSPPS TMI</h3>
+    
     <!-- Card dengan variabel khusus -->
     <div class="card" id="specialCard" style="width: 18rem;">
       <div class="image">
@@ -21,7 +23,6 @@
       </div>
     </div>
   </div><!-- Container end -->
-   
 </section><!-- Main container end -->
 
 <!-- Footer -->
