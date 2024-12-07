@@ -1,6 +1,8 @@
 <!-- Header -->
 @include('layouts.header')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <body>
     <div class="body-inner">
 
@@ -36,10 +38,11 @@ Indah, Kec. Klp. Dua, Kabupaten Tangerang, Banten 15810</h6>
                             <i class="material-icons left">mail</i> Email
                             <h6 class="bold m-l-40">telagamandiriindonesia@gmail.com</h6>
                         </div>
-                         <!--<a href="www.instagram.com/@TMISyariah" id="izldf-2">-->
-                          <a href="https://www.instagram.com/@TMISyariah">Instagram</a> 
-                         <img class="link-img" src="kontak_files/Icon-instagram.png">
-                  
+                        <div class="m-t-30 d-flex align-items-center">
+                            <a href="https://www.instagram.com/@TMISyariah" class="d-flex align-items-center">
+                                <i class="fab fa-instagram" style="font-size: 24px; margin-right: 8px;"></i> Instagram
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="social-media-links">
