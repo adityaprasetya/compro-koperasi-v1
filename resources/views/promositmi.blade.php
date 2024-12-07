@@ -15,9 +15,9 @@
         </div>
         
         <div class="row justify-content-center">
-            <!-- Menampilkan gambar yang besar dan responsif -->
+            <!-- Menampilkan gambar yang besar dan responsif dengan 5 gambar per baris -->
             @foreach ($promosis as $promosi)
-                <div class="col-12 col-md-10 text-center"> <!-- Menambahkan kelas text-center untuk memusatkan gambar -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4 text-center">
                     <img src="{{ url('storage/promosi/' . $promosi->image) }}" class="img-fluid" alt="Promosi TMI Image">
                 </div>
             @endforeach
@@ -25,6 +25,7 @@
         
     </div><!-- Container end -->
 </section><!-- Main container end -->
+
 
 <!-- Header -->
 @include('layouts.footer')
