@@ -113,6 +113,10 @@ Route::get('/pembiayaan', [ControllerPembiayaan::class, 'index'])
 ->name('pembiayaan')
 ->middleware('auth');
 
+Route::get('/simulasi', [ControllerSimulasi::class, 'index'])
+->name('simulasi')
+->middleware('auth');
+
 Route::get('/sliders', [ControllerSliders::class, 'index'])
 ->name('sliders')
 ->middleware('auth');
