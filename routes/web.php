@@ -64,10 +64,10 @@ Route::get('/pembiayaan-tmi', function () {
 
 Route::get('/pembiayaan-tmi', function () {
     // Ambil gambar pembiayaan
-    $pembiayaan = ModelPembiayaan::latest()->take(1)->get(); // Ambil 1 gambar pembiayaan terbaru
+    $pembiayaans = ModelPembiayaan::latest()->take(1)->get(); // Ambil 1 gambar pembiayaan terbaru
     
     // Kirim data pembiayaan, ke view 'home'
-    return view('pinjaman.pembiayaantmi', compact('pembiayaan'));
+    return view('pinjaman.pembiayaantmi', compact('pembiayaans'));
 });
 
 Route::get('/kontak', function () {
