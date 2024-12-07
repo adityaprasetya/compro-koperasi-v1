@@ -35,11 +35,15 @@
 
             </div>
 
+            <!-- Kolom untuk Menampilkan Video -->
             <div class="col-lg-6 mt-5 mt-lg-0">
-
-                <iframe width="560" height="315" src="profil_files/YluJKooDw34.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+                <!-- Embed YouTube video dengan ID video yang benar -->
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/YluJKooDw34" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
-
           
         </div><!-- Content row end -->
     </div><!-- Container end -->
